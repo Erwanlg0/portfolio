@@ -1,11 +1,742 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonjour</title>
-</head>
-<body>
-    <h1>Bonjour</h1>
-</body>
-</html></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="title">Erwan Luce-Guedon | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pO8A+hAh+G+rhK/Y+o1yQYkg7Lh1UFm9xQ1GZ4vY3PGLAeUccpOeBJi85UQbrjWepemTkF0GzBRjLBaH+7V8Ew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+      defer
+    ></script>
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="navbar-container">
+        <div class="logo">
+          <i class="fas fa-globe-americas"></i>
+          <span data-i18n="logo">ELG</span>
+        </div>
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li><a href="#about" data-i18n="nav_about">À propos</a></li>
+            <li><a href="#education" data-i18n="nav_education">Diplômes</a></li>
+            <li>
+              <a href="#experience" data-i18n="nav_experience">Expérience</a>
+            </li>
+            <li><a href="#skills" data-i18n="nav_skills">Compétences</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Portfolio</a></li>
+            <li>
+              <a href="#certifications" data-i18n="nav_certifications"
+                >Certifications</a
+              >
+            </li>
+            <li><a href="#contact" data-i18n="nav_contact">Me contacter</a></li>
+          </ul>
+        </nav>
+        <div class="header-icons">
+          <a href="assets/pdf/CV_Erwan_Luce_Guedon.pdf" download class="cv-download" data-i18n="download_cv">
+            <i class="fas fa-download"></i> CV
+          </a>
+          <div class="language-selector-container">
+            <img src="assets/images/earth.png" alt="Planète" />
+            <select id="lang" name="lang" class="language-selector">
+              <option value="fr" data-i18n="lang_fr" selected>Français</option>
+              <option value="en" data-i18n="lang_en">Anglais</option>
+              <option value="es" data-i18n="lang_es">Espagnol</option>
+            </select>
+          </div>
+        </div>
+        
+    </header>
+
+    <section class="cover-section" id="home">
+      <div class="cover-video-overlay"></div>
+      <div class="cover-content">
+        <h1 data-i18n="cover_title">Bienvenue sur Mon Portfolio</h1>
+        <p data-i18n="cover_description">
+          Développeur | Transformons des idées en solutions
+          concrètes
+        </p>
+        <a href="#about" class="button" data-i18n="learn_more"
+          >En savoir plus</a
+        >
+      </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about">
+      <div class="container about-container">
+        <h2 class="about-title" data-i18n="about_title">
+          --- <em>À propos</em> ---
+        </h2>
+
+        <div class="about-content">
+          <div class="profile-photo">
+            <img src="assets/images/pdp.png" alt="Photo de profil" />
+            <div class="photo-overlay"></div>
+          </div>
+
+          <div class="about-details">
+            <ul class="tabs">
+              <li
+                class="tab active"
+                data-tab="presentation"
+                data-i18n="tab_presentation"
+              >
+                Présentation
+              </li>
+              <li class="tab" data-tab="languages" data-i18n="tab_languages">
+                Langues
+              </li>
+              <li
+                class="tab"
+                data-tab="soft-skills"
+                data-i18n="tab_soft_skills"
+              >
+                Soft Skills
+              </li>
+              <li class="tab" data-tab="passions" data-i18n="tab_passions">
+                Passions
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="presentation">
+                <p data-i18n="presentation_content">
+                  Je suis Erwan Luce-Guedon, un développeur
+                </p>
+              </div>
+
+              <div class="tab-pane" id="languages">
+                <div class="languages-container">
+                  <div class="language">
+                    <img
+                      src="assets/images/flags/fr.png"
+                      alt="Drapeau Français"
+                      class="flag"
+                    />
+                    <h3><em data-i18n="language_fr">Français</em></h3>
+                    <p data-i18n="language_fr_level">Langue maternelle</p>
+                  </div>
+                  <div class="language">
+                    <img
+                      src="assets/images/flags/en.png"
+                      alt="Drapeau Britannique"
+                      class="flag"
+                    />
+                    <h3><em data-i18n="language_en">Anglais</em></h3>
+                    <p data-i18n="language_en_level">Niveau B2</p>
+                  </div>
+                  <div class="language">
+                    <img
+                      src="assets/images/flags/es.png"
+                      alt="Drapeau Espagnol"
+                      class="flag"
+                    />
+                    <h3><em data-i18n="language_es">Espagnol</em></h3>
+                    <p data-i18n="language_es_level">Niveau B1</p>
+                  </div>
+                  <div class="language">
+                    <img
+                      src="assets/images/flags/cn.png"
+                      alt="Drapeau Chinois"
+                      class="flag"
+                    />
+                    <h3><em data-i18n="language_cn">Chinois</em></h3>
+                    <p data-i18n="language_cn_level">Niveau A2</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Soft Skills -->
+              <div class="tab-pane" id="soft-skills">
+                <p data-i18n="soft_skills_content">
+                  Travail en équipe, Autonomie, Résolution de problèmes,
+                  Communication efficace, Gestion du temps.
+                </p>
+              </div>
+
+              <!-- Passions -->
+              <div class="tab-pane" id="passions">
+                <p data-i18n="passions_content">
+                  Passionné de sports, de voyages et d'informatique. J'aime explorer de nouvelles cultures et capturer des moments uniques.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Diplômes-->
+    <section id="education" class="timeline-section">
+      <h2 data-i18n="education_title">Diplômes</h2>
+      <div class="timeline">
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="degree_bachelor">Bachelor Informatique</h3>
+            <p data-i18n="degree_bachelor_institution">ESGI, Paris 12ème</p>
+            <p data-i18n="degree_bachelor_modules">
+              Modules : Développement Web, Langage C, SQL, Linux et Réseaux.
+            </p>
+          </div>
+          <div class="timeline-date">2023 - Présent</div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="degree_baccalaureat">Baccalauréat Général</h3>
+            <p data-i18n="degree_baccalaureat_institution">
+              Lycée Évariste Galois, Sartrouville
+            </p>
+            <p data-i18n="degree_baccalaureat_specialties">
+              Spécialités : Mathématiques, NSI.
+            </p>
+          </div>
+          <div class="timeline-date">2020 - 2023</div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="degree_brevet">Brevet des Collèges</h3>
+            <p data-i18n="degree_brevet_institution">
+              Collège Colette, Sartrouville
+            </p>
+          </div>
+          <div class="timeline-date">2016 - 2020</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Expérience Professionnelle -->
+    <section id="experience" class="timeline-section">
+      <h2 data-i18n="experience_title">Expérience Professionnelle</h2>
+      <div class="timeline">
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="experience_mcdonalds_title">
+              Employé chez McDonald's
+            </h3>
+            <p data-i18n="experience_mcdonalds_institution">
+              McDonald's, Colombes
+            </p>
+            <p data-i18n="experience_mcdonalds_details">
+              Temps Partiel : Octobre 2024 - Présent
+            </p>
+          </div>
+          <div class="timeline-date">Octobre 2024 - Présent</div>
+        </div>
+        <div class="timeline-item right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="experience_quick_title">Employé chez Quick</h3>
+            <p data-i18n="experience_quick_institution">Quick, Sartrouville</p>
+            <p data-i18n="experience_quick_details">
+              CDI Temps Partiel : Avril 2024 - Juin 2024
+            </p>
+          </div>
+          <div class="timeline-date">Avril 2024 - Juin 2024</div>
+        </div>
+        <div class="timeline-item left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 data-i18n="experience_monoprix_title">Vendeur</h3>
+            <p data-i18n="experience_monoprix_institution">Monoprix, Sartrouville</p>
+            <p data-i18n="experience_monoprix_details">
+              CDD Temps Partiel : Février 2024 - Avril 2024
+            </p>
+          </div>
+          <div class="timeline-date">Avril 2024 - Juin 2024</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills">
+      <div class="container">
+        <h2 data-i18n="skills_title">Compétences</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3 data-i18n="skill_web">Web</h3>
+            <ul>
+              <li data-i18n="skill_web_html_css_js">HTML / CSS / JS</li>
+              <li data-i18n="skill_web_php">PHP</li>
+              <li data-i18n="skill_web_angular">Angular</li>
+              <li data-i18n="skill_web_typescript">Typescript</li>
+              <li data-i18n="skill_web_nodejs">NodeJs</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3 data-i18n="skill_db">Base de données</h3>
+            <ul>
+              <li data-i18n="skill_db_mysql">MySQL</li>
+              <li data-i18n="skill_db_sqlite">SQLite</li>
+              <li data-i18n="skill_db_oracle">Oracle</li>
+              <li data-i18n="skill_db_pdo">PDO</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3 data-i18n="skill_programming">Programmation</h3>
+            <ul>
+              <li data-i18n="skill_programming_c">C</li>
+              <li data-i18n="skill_programming_python">Python</li>
+              <li data-i18n="skill_programming_vba">VBA</li>
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <h3 data-i18n="skill_other">Autres</h3>
+            <ul>
+              <li data-i18n="skill_other_premiere_pro">Premiere pro</li>
+              <li data-i18n="skill_other_photoshop">Photoshop</li>
+              <li data-i18n="skill_other_blender">Blender</li>
+              <li data-i18n="skill_other_git">Git</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Portfolio -->
+    <section id="projects" class="portfolio-section">
+      <div class="container">
+        <h2 data-i18n="projects_title">Portfolio</h2>
+        <div class="portfolio-container">
+          <div class="card">
+            <h2 data-i18n="project_app_c_graphique">
+              Développement d'une application en langage C avec interface
+              graphique
+            </h2>
+            <img
+              src="assets/images/project/tetris.png"
+              alt="Application C Graphique"
+            />
+            <div class="tags">
+              <span class="tag c" data-i18n="tag_c">C</span>
+              <span class="tag interface" data-i18n="tag_interface_graphique"
+                >Interface Graphique</span
+              >
+              <span class="tag data" data-i18n="tag_traitement_donnees"
+                >Traitement de Données</span
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="project_site_dynamique">
+              Développement d'un site web dynamique "from scratch"
+            </h2>
+            <img
+              src="assets/images/project/cmwnoir.png"
+              alt="Site Web Dynamique"
+            />
+            <div class="tags">
+              <span class="tag php" data-i18n="tag_php">PHP</span>
+              <span class="tag javascript" data-i18n="tag_javascript"
+                >JavaScript</span
+              >
+              <span class="tag gestion_projet" data-i18n="tag_gestion_projet"
+                >Gestion de Projet</span
+              >
+              <span class="tag css" data-i18n="tag_css">CSS</span>
+              <span class="tag html5" data-i18n="tag_html5">HTML5</span>
+              <span class="tag bootstrap" data-i18n="tag_bootstrap"
+                >Bootstrap</span
+              >
+              <span class="tag mariadb" data-i18n="tag_mariadb">MariaDB</span>
+              <span class="tag linux" data-i18n="tag_linux">Serveur Linux</span>
+              <span class="tag debian" data-i18n="tag_debian">Debian</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="project_nas_domicile">NAS à domicile</h2>
+            <img src="assets/images/project/nas.png" alt="NAS à Domicile" />
+            <div class="tags">
+              <span class="tag linux" data-i18n="tag_linux">Serveur Linux</span>
+              <span
+                class="tag administration_reseau"
+                data-i18n="tag_administration_reseau"
+                >Administration Réseau</span
+              >
+              <span class="tag ubuntu" data-i18n="tag_ubuntu">Ubuntu</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="project_site_bdd">
+              Site Web avec Base de Données (BDD)
+            </h2>
+            <img src="assets/images/project/web.png" alt="Site Web avec BDD" />
+            <div class="tags">
+              <span class="tag python" data-i18n="tag_python">Python</span>
+              <span class="tag html5" data-i18n="tag_html5">HTML5</span>
+              <span class="tag sqlite" data-i18n="tag_sqlite">SQLite</span>
+              <span class="tag sql" data-i18n="tag_sql">SQL</span>
+              <span class="tag css" data-i18n="tag_css">CSS</span>
+              <span class="tag php" data-i18n="tag_php">PHP</span>
+              <span class="tag javascript" data-i18n="tag_javascript"
+                >JavaScript</span
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="project_pavage_trapezes">
+              Pavage par des trapèzes en Python
+            </h2>
+            <img src="assets/images/project/python.png" alt="Pavage Trapèzes" />
+            <div class="tags">
+              <span class="tag python" data-i18n="tag_python">Python</span>
+              <span class="tag script" data-i18n="tag_script">Script</span>
+              <span class="tag graphique" data-i18n="tag_graphique"
+                >Graphique</span
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="project_site_web">Site Web</h2>
+            <img src="assets/images/project/web.png" alt="Site Web" />
+            <div class="tags">
+              <span class="tag python" data-i18n="tag_python">Python</span>
+              <span class="tag html5" data-i18n="tag_html5">HTML5</span>
+              <span class="tag css" data-i18n="tag_css">CSS</span>
+              <span class="tag javascript" data-i18n="tag_javascript"
+                >JavaScript</span
+              >
+              <span class="tag flask" data-i18n="tag_flask">Flask</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 data-i18n="project_bot_js">Bot en JavaScript</h2>
+            <img src="assets/images/project/discord.png" alt="Bot JavaScript" />
+            <div class="tags">
+              <span class="tag nodejs" data-i18n="tag_nodejs">Node.js</span>
+              <span class="tag javascript" data-i18n="tag_javascript"
+                >JavaScript</span
+              >
+              <span class="tag discordjs" data-i18n="tag_discordjs"
+                >discord.js</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Certifications -->
+    <section id="certifications" class="certifications-section">
+      <div class="container">
+        <h2 data-i18n="certifications_title">Certifications</h2>
+        <div class="certifications-container">
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/google.png"
+              alt="Logo Google"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_cloud_digital_leader">
+              Cloud Digital Leader Certification
+            </h3>
+            <p data-i18n="certification_google">Google</p>
+            <p data-i18n="certification_google_dates">
+              Émise le déc. 2024 · Expire le déc. 2027
+            </p>
+            <a
+              href="https://www.credly.com/badges/5bbc8da9-3ac1-4f06-9cd6-cd2bd40f64a8/linked_in_profile"
+              class="button certification-button"
+              data-i18n="certification_show_id"
+              >Afficher l'identifiant</a
+            >
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/computer-hardware-basics.png"
+              alt="Logo Cisco"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_computer_hardware_basics">
+              Computer Hardware Basics
+            </h3>
+            <p data-i18n="certification_cisco">Cisco</p>
+            <p data-i18n="certification_cisco_dates">
+              Date de délivrance : nov. 2024
+            </p>
+            <a
+              href="https://www.credly.com/badges/933c07b0-8890-41bb-b001-4d8a800a2143/public_url"
+              class="button certification-button"
+              data-i18n="certification_show_id"
+              >Afficher l'identifiant</a
+            >
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/introduction-to-data-science.png"
+              alt="Logo Cisco"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_intro_data_science">
+              Introduction to Data Science
+            </h3>
+            <p data-i18n="certification_cisco">Cisco</p>
+            <p data-i18n="certification_cisco_dates">
+              Date de délivrance : nov. 2024
+            </p>
+            <a
+              href="https://www.credly.com/badges/5bbc8da9-3ac1-4f06-9cd6-cd2bd40f64a9/public_url"
+              class="button certification-button"
+              data-i18n="certification_show_id"
+              >Afficher l'identifiant</a
+            >
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/operating-systems-basics.png"
+              alt="Logo Cisco"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_operating_systems_basics">
+              Operating Systems Basics
+            </h3>
+            <p data-i18n="certification_cisco">Cisco</p>
+            <p data-i18n="certification_cisco_dates">
+              Date de délivrance : nov. 2024
+            </p>
+            <a
+              href="https://www.credly.com/badges/e4ee794f-a211-453e-95d4-0da6fd48b920/public_url"
+              class="button certification-button"
+              data-i18n="certification_show_id"
+              >Afficher l'identifiant</a
+            >
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/introduction-to-cybersecurity.png"
+              alt="Logo Cisco"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_intro_cybersecurity">
+              Introduction to Cybersecurity
+            </h3>
+            <p data-i18n="certification_cisco">Cisco</p>
+            <p data-i18n="certification_cisco_dates">
+              Date de délivrance : oct. 2024
+            </p>
+            <a
+              href="https://www.credly.com/badges/b5526208-0a27-4446-8984-709763eac1da/public_url"
+              class="button certification-button"
+              data-i18n="certification_show_id"
+              >Afficher l'identifiant</a
+            >
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/introduction-to-iot.png"
+              alt="Logo Cisco"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_intro_iot">Introduction to IoT</h3>
+            <p data-i18n="certification_cisco">Cisco</p>
+            <p data-i18n="certification_cisco_dates">
+              Date de délivrance : oct. 2024
+            </p>
+            <a
+              href="https://www.credly.com/badges/0605da23-e589-4035-ab1d-5898cebc480c/public_url"
+              class="button certification-button"
+              data-i18n="certification_show_id"
+              >Afficher l'identifiant</a
+            >
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/mooc.png"
+              alt="Logo MOOC Gestion de Projet"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_oaw">
+              Attestation de réussite - Spécialisation OAW
+            </h3>
+            <p data-i18n="certification_mooc">MOOC Gestion de Projet</p>
+            <p data-i18n="certification_oaw_dates">
+              Émise le mai 2024 · Expire le mai 2027
+            </p>
+            <p data-i18n="certification_oaw_id">
+              Identifiant : 59bb58d01b724ceeac68f61460edb27f
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/mooc.png"
+              alt="Logo MOOC Gestion de Projet"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_tronc_commun">
+              Attestation de réussite - Tronc commun
+            </h3>
+            <p data-i18n="certification_mooc">MOOC Gestion de Projet</p>
+            <p data-i18n="certification_tronc_commun_dates">
+              Émise le avr. 2024 · Expire le mai 2027
+            </p>
+            <p data-i18n="certification_tronc_commun_id">
+              Identifiant : GdP23TcV-LuSDVqZQA
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/anssi.png"
+              alt="Logo ANSSI"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_secnum">
+              Attestation de suivi SecNum
+            </h3>
+            <p data-i18n="certification_anssi">ANSSI</p>
+            <p data-i18n="certification_anssi_dates">
+              Date de délivrance : nov. 2023
+            </p>
+          </div>
+
+          <div class="certification-card">
+            <img
+              src="assets/images/certif/pix.png"
+              alt="Logo Pix"
+              class="certification-logo"
+            />
+            <h3 data-i18n="certification_pix">Certificat Pix</h3>
+            <p data-i18n="certification_pix_org">Pix</p>
+            <p data-i18n="certification_pix_dates">
+              Émise le janv. 2023 · Expire le janv. 2026
+            </p>
+            <p data-i18n="certification_pix_id">Identifiant : P-HXTCD6FM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Contact avec Formulaire -->
+    <section id="contact">
+      <div class="container">
+        <h2 data-i18n="contact_title">Contactez-moi</h2>
+        <p data-i18n="contact_description">
+          Envoyez-moi un message en remplissant le formulaire ci-dessous :
+        </p>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="name" data-i18n="contact_label_name">Nom :</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Votre nom"
+              data-i18n-placeholder="contact_placeholder_name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="contact_label_email">Email :</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="Votre email"
+              data-i18n-placeholder="contact_placeholder_email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="subject" data-i18n="contact_label_subject"
+              >Sujet :</label
+            >
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              placeholder="Sujet de votre message"
+              data-i18n-placeholder="contact_placeholder_subject"
+            />
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="contact_label_message"
+              >Message :</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              placeholder="Votre message"
+              data-i18n-placeholder="contact_placeholder_message"
+            ></textarea>
+          </div>
+          <button type="submit" class="button" data-i18n="contact_send">
+            Envoyer
+          </button>
+        </form>
+      </div>
+      <div class="contact-buttons-container">
+        <div class="contact_caps clickableBtn" data-contact="linkedin">
+          <img
+            class="contact_caps_pic"
+            src="assets/images/rs/linkedin.png"
+            alt="LinkedIn icon"
+          />
+          <p class="contact_caps_p" data-i18n="contact_linkedin">LinkedIn</p>
+        </div>
+
+        <div class="contact_caps clickableBtn" data-contact="download_cv">
+          <img
+            class="contact_caps_pic"
+            src="assets/images/downloads.png"
+            alt="Download icon"
+          />
+          <p class="contact_caps_p" data-i18n="contact_download_cv">
+            Téléchargez ici mon CV
+          </p>
+        </div>
+
+        <div class="contact_caps clickableBtn" data-contact="github">
+          <img
+            class="contact_caps_pic"
+            src="assets/images/rs/github.png"
+            alt="GitHub icon"
+          />
+          <p class="contact_caps_p" data-i18n="contact_github">GitHub</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p data-i18n="footer_text">
+        &copy; 2024 Erwan Luce--Guédon. Tous droits réservés.
+      </p>
+    </footer>
+  </body>
+</html>
