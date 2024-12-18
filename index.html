@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="title">Erwan Luce-Guedon | Portfolio</title>
+    <title data-i18n="title">Erwan Luce--Guédon | Portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -23,6 +23,9 @@
     ></script>
     <script src="assets/js/api-keys.js" defer></script>
     <script src="assets/js/scripts.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+    <script src="assets/js/vue-scripts.js" defer></script>
+
   </head>
   <body>
     <header class="header">
@@ -315,331 +318,57 @@
       </div>
     </section>
 
-    <!-- Section Portfolio -->
     <section id="projects" class="portfolio-section">
-      <div class="container">
-        <h2 data-i18n="projects_title">Portfolio</h2>
+      <div class="container" id="projectsApp">
+        <h2>Projets</h2>
+        <div class="project-filters">
+          <button v-for="category in categories" :key="category" @click="filterCategory(category)">
+            {{ category }}
+          </button>
+        </div>
         <div class="portfolio-container">
-          <div class="card">
-            <h2 data-i18n="project_app_c_graphique">
-              Développement d'une application en langage C avec interface
-              graphique
-            </h2>
-            <img
-              src="assets/images/project/tetris.png"
-              alt="Application C Graphique"
-            />
+          <div class="card" v-for="project in filteredProjects" :key="project.id">
+            <h2>{{ project.title }}</h2>
+            <img :src="project.image" :alt="project.title" />
             <div class="tags">
-              <span class="tag c" data-i18n="tag_c">C</span>
-              <span class="tag interface" data-i18n="tag_interface_graphique"
-                >Interface Graphique</span
-              >
-              <span class="tag data" data-i18n="tag_traitement_donnees"
-                >Traitement de Données</span
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 data-i18n="project_site_dynamique">
-              Développement d'un site web dynamique "from scratch"
-            </h2>
-            <img
-              src="assets/images/project/cmwnoir.png"
-              alt="Site Web Dynamique"
-            />
-            <div class="tags">
-              <span class="tag php" data-i18n="tag_php">PHP</span>
-              <span class="tag javascript" data-i18n="tag_javascript"
-                >JavaScript</span
-              >
-              <span class="tag gestion_projet" data-i18n="tag_gestion_projet"
-                >Gestion de Projet</span
-              >
-              <span class="tag css" data-i18n="tag_css">CSS</span>
-              <span class="tag html5" data-i18n="tag_html5">HTML5</span>
-              <span class="tag bootstrap" data-i18n="tag_bootstrap"
-                >Bootstrap</span
-              >
-              <span class="tag mariadb" data-i18n="tag_mariadb">MariaDB</span>
-              <span class="tag linux" data-i18n="tag_linux">Serveur Linux</span>
-              <span class="tag debian" data-i18n="tag_debian">Debian</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 data-i18n="project_nas_domicile">NAS à domicile</h2>
-            <img src="assets/images/project/nas.png" alt="NAS à Domicile" />
-            <div class="tags">
-              <span class="tag linux" data-i18n="tag_linux">Serveur Linux</span>
               <span
-                class="tag administration_reseau"
-                data-i18n="tag_administration_reseau"
-                >Administration Réseau</span
+                v-for="tag in project.tags"
+                :key="tag"
+                class="tag"
+                :class="tag.toLowerCase()"
               >
-              <span class="tag ubuntu" data-i18n="tag_ubuntu">Ubuntu</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 data-i18n="project_site_bdd">
-              Site Web avec Base de Données (BDD)
-            </h2>
-            <img src="assets/images/project/web.png" alt="Site Web avec BDD" />
-            <div class="tags">
-              <span class="tag python" data-i18n="tag_python">Python</span>
-              <span class="tag html5" data-i18n="tag_html5">HTML5</span>
-              <span class="tag sqlite" data-i18n="tag_sqlite">SQLite</span>
-              <span class="tag sql" data-i18n="tag_sql">SQL</span>
-              <span class="tag css" data-i18n="tag_css">CSS</span>
-              <span class="tag php" data-i18n="tag_php">PHP</span>
-              <span class="tag javascript" data-i18n="tag_javascript"
-                >JavaScript</span
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 data-i18n="project_pavage_trapezes">
-              Pavage par des trapèzes en Python
-            </h2>
-            <img src="assets/images/project/python.png" alt="Pavage Trapèzes" />
-            <div class="tags">
-              <span class="tag python" data-i18n="tag_python">Python</span>
-              <span class="tag script" data-i18n="tag_script">Script</span>
-              <span class="tag graphique" data-i18n="tag_graphique"
-                >Graphique</span
-              >
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 data-i18n="project_site_web">Site Web</h2>
-            <img src="assets/images/project/web.png" alt="Site Web" />
-            <div class="tags">
-              <span class="tag python" data-i18n="tag_python">Python</span>
-              <span class="tag html5" data-i18n="tag_html5">HTML5</span>
-              <span class="tag css" data-i18n="tag_css">CSS</span>
-              <span class="tag javascript" data-i18n="tag_javascript"
-                >JavaScript</span
-              >
-              <span class="tag flask" data-i18n="tag_flask">Flask</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h2 data-i18n="project_bot_js">Bot en JavaScript</h2>
-            <img src="assets/images/project/discord.png" alt="Bot JavaScript" />
-            <div class="tags">
-              <span class="tag nodejs" data-i18n="tag_nodejs">Node.js</span>
-              <span class="tag javascript" data-i18n="tag_javascript"
-                >JavaScript</span
-              >
-              <span class="tag discordjs" data-i18n="tag_discordjs"
-                >discord.js</span
-              >
+                {{ tag }}
+              </span>
             </div>
           </div>
         </div>
       </div>
     </section>
+    
 
-    <!-- Section Certifications -->
     <section id="certifications" class="certifications-section">
-      <div class="container">
-        <h2 data-i18n="certifications_title">Certifications</h2>
+      <div class="container" id="certificationsApp">
+        <h2>Certifications</h2>
+        <div class="certification-filters">
+          <button v-for="category in categories" :key="category" @click="filterCategory(category)">
+            {{ category }}
+          </button>
+        </div>
         <div class="certifications-container">
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/google.png"
-              alt="Logo Google"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_cloud_digital_leader">
-              Cloud Digital Leader Certification
-            </h3>
-            <p data-i18n="certification_google">Google</p>
-            <p data-i18n="certification_google_dates">
-              Émise le déc. 2024 · Expire le déc. 2027
-            </p>
-            <a
-              href="https://www.credly.com/badges/5bbc8da9-3ac1-4f06-9cd6-cd2bd40f64a8/linked_in_profile"
-              class="button certification-button"
-              data-i18n="certification_show_id"
-              >Afficher l'identifiant</a
-            >
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/computer-hardware-basics.png"
-              alt="Logo Cisco"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_computer_hardware_basics">
-              Computer Hardware Basics
-            </h3>
-            <p data-i18n="certification_cisco">Cisco</p>
-            <p data-i18n="certification_cisco_dates">
-              Date de délivrance : nov. 2024
-            </p>
-            <a
-              href="https://www.credly.com/badges/933c07b0-8890-41bb-b001-4d8a800a2143/public_url"
-              class="button certification-button"
-              data-i18n="certification_show_id"
-              >Afficher l'identifiant</a
-            >
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/introduction-to-data-science.png"
-              alt="Logo Cisco"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_intro_data_science">
-              Introduction to Data Science
-            </h3>
-            <p data-i18n="certification_cisco">Cisco</p>
-            <p data-i18n="certification_cisco_dates">
-              Date de délivrance : nov. 2024
-            </p>
-            <a
-              href="https://www.credly.com/badges/5bbc8da9-3ac1-4f06-9cd6-cd2bd40f64a9/public_url"
-              class="button certification-button"
-              data-i18n="certification_show_id"
-              >Afficher l'identifiant</a
-            >
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/operating-systems-basics.png"
-              alt="Logo Cisco"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_operating_systems_basics">
-              Operating Systems Basics
-            </h3>
-            <p data-i18n="certification_cisco">Cisco</p>
-            <p data-i18n="certification_cisco_dates">
-              Date de délivrance : nov. 2024
-            </p>
-            <a
-              href="https://www.credly.com/badges/e4ee794f-a211-453e-95d4-0da6fd48b920/public_url"
-              class="button certification-button"
-              data-i18n="certification_show_id"
-              >Afficher l'identifiant</a
-            >
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/introduction-to-cybersecurity.png"
-              alt="Logo Cisco"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_intro_cybersecurity">
-              Introduction to Cybersecurity
-            </h3>
-            <p data-i18n="certification_cisco">Cisco</p>
-            <p data-i18n="certification_cisco_dates">
-              Date de délivrance : oct. 2024
-            </p>
-            <a
-              href="https://www.credly.com/badges/b5526208-0a27-4446-8984-709763eac1da/public_url"
-              class="button certification-button"
-              data-i18n="certification_show_id"
-              >Afficher l'identifiant</a
-            >
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/introduction-to-iot.png"
-              alt="Logo Cisco"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_intro_iot">Introduction to IoT</h3>
-            <p data-i18n="certification_cisco">Cisco</p>
-            <p data-i18n="certification_cisco_dates">
-              Date de délivrance : oct. 2024
-            </p>
-            <a
-              href="https://www.credly.com/badges/0605da23-e589-4035-ab1d-5898cebc480c/public_url"
-              class="button certification-button"
-              data-i18n="certification_show_id"
-              >Afficher l'identifiant</a
-            >
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/mooc.png"
-              alt="Logo MOOC Gestion de Projet"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_oaw">
-              Attestation de réussite - Spécialisation OAW
-            </h3>
-            <p data-i18n="certification_mooc">MOOC Gestion de Projet</p>
-            <p data-i18n="certification_oaw_dates">
-              Émise le mai 2024 · Expire le mai 2027
-            </p>
-            <p data-i18n="certification_oaw_id">
-              Identifiant : 59bb58d01b724ceeac68f61460edb27f
-            </p>
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/mooc.png"
-              alt="Logo MOOC Gestion de Projet"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_tronc_commun">
-              Attestation de réussite - Tronc commun
-            </h3>
-            <p data-i18n="certification_mooc">MOOC Gestion de Projet</p>
-            <p data-i18n="certification_tronc_commun_dates">
-              Émise le avr. 2024 · Expire le mai 2027
-            </p>
-            <p data-i18n="certification_tronc_commun_id">
-              Identifiant : GdP23TcV-LuSDVqZQA
-            </p>
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/anssi.png"
-              alt="Logo ANSSI"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_secnum">
-              Attestation de suivi SecNum
-            </h3>
-            <p data-i18n="certification_anssi">ANSSI</p>
-            <p data-i18n="certification_anssi_dates">
-              Date de délivrance : nov. 2023
-            </p>
-          </div>
-
-          <div class="certification-card">
-            <img
-              src="assets/images/certif/pix.png"
-              alt="Logo Pix"
-              class="certification-logo"
-            />
-            <h3 data-i18n="certification_pix">Certificat Pix</h3>
-            <p data-i18n="certification_pix_org">Pix</p>
-            <p data-i18n="certification_pix_dates">
-              Émise le janv. 2023 · Expire le janv. 2026
-            </p>
-            <p data-i18n="certification_pix_id">Identifiant : P-HXTCD6FM</p>
+          <div
+            class="certification-card"
+            v-for="cert in filteredCertifications"
+            :key="cert.id"
+          >
+            <img :src="cert.logo" :alt="cert.name" class="certification-logo" />
+            <h3>{{ cert.name }}</h3>
+            <p>{{ cert.organization }}</p>
+            <p>{{ cert.date }}</p>
           </div>
         </div>
       </div>
     </section>
+    
 
     <!-- Section Contact avec Formulaire -->
     <section id="contact">
