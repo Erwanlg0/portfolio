@@ -138,9 +138,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           localStorage.getItem("preferredLanguage") || "fr";
         let cvFile = "CV_Erwan_Luce_Guedon_fr.pdf";
         if (preferredLanguage === "en") {
-          cvFile = "CV_Erwan_Luce_Guedon_en.pdf";
-        } else if (preferredLanguage === "es") {
           cvFile = "CV_EN_Erwan_Luce_Guedon.pdf";
+        } else if (preferredLanguage === "es") {
+          cvFile = "CV_ES_Erwan_Luce_Guedon.pdf";
         }
         window.location.href = `assets/pdf/${cvFile}`;
       } else if (contactType === "github") {
