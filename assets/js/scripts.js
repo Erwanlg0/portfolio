@@ -6,7 +6,7 @@ let translations = {};
 
 async function loadTranslations() {
   try {
-    const response = await fetch("../assets/translations.json");
+    const response = await fetch("assets/translations.json");
     translations = await response.json();
   } catch (error) {
     console.error("Erreur de chargement des traductions : ", error);
