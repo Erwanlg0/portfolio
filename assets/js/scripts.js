@@ -1,12 +1,12 @@
 (function () {
-  emailjs.init("cxK95TR9KOaNFZLtc");
+  emailjs.init(EMAILJS_USER_ID);
 })();
 
 let translations = {};
 
 async function loadTranslations() {
   try {
-    const response = await fetch("translations.json");
+    const response = await fetch("../assets/translations.json");
     translations = await response.json();
   } catch (error) {
     console.error("Erreur de chargement des traductions : ", error);
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const preferredLanguage =
         localStorage.getItem("preferredLanguage") || "fr";
 
-      emailjs.sendForm("service_5jkc97b", "template_pp5m389", this).then(
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this).then(
         (response) => {
           console.log("SUCCESS!", response.status, response.text);
           alert(
