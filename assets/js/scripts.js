@@ -9,7 +9,7 @@ async function loadTranslations() {
     const response = await fetch("/assets/translations.json");
     translations = await response.json();
   } catch (error) {
-    console.error("Erreur de chargement des traductions : ", error);
+    console.error("Erreur de chargement des traductions :", error);
   }
 }
 
@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           alert(
             preferredLanguage === "en"
               ? "Thank you! Your message has been sent."
+              : preferredLanguage === "es"
+              ? "¡Gracias! Tu mensaje ha sido enviado."
               : "Merci ! Votre message a bien été envoyé."
           );
           contactForm.reset();
@@ -100,6 +102,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           alert(
             preferredLanguage === "en"
               ? "An error occurred. Please try again."
+              : preferredLanguage === "es"
+              ? "Ocurrió un error. Por favor, inténtalo de nuevo."
               : "Une erreur est survenue. Veuillez réessayer."
           );
         }
@@ -130,7 +134,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (contactType === "linkedin") {
         window.open("https://www.linkedin.com/in/erwan-luce-guedon", "_blank");
       } else if (contactType === "download_cv") {
-        window.location.href = "assets/pdf/CV_Erwan_Luce_Guedon.pdf";
+        const preferredLanguage =
+          localStorage.getItem("preferredLanguage") || "fr";
+        let cvFile = "CV_Erwan_Luce_Guedon_fr.pdf";
+        if (preferredLanguage === "en") {
+          cvFile = "CV_Erwan_Luce_Guedon_en.pdf";
+        } else if (preferredLanguage === "es") {
+          cvFile = "CV_EN_Erwan_Luce_Guedon.pdf";
+        }
+        window.location.href = `assets/pdf/${cvFile}`;
       } else if (contactType === "github") {
         window.open("https://github.com/Erwanlg0", "_blank");
       }
