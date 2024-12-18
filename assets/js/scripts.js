@@ -6,7 +6,7 @@ let translations = {};
 
 async function loadTranslations() {
   try {
-    const response = await fetch("/assets/translations.json");
+    const response = await fetch("assets/translations.json");
     translations = await response.json();
   } catch (error) {
     console.error("Erreur de chargement des traductions :", error);
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       } else if (contactType === "download_cv") {
         const preferredLanguage =
           localStorage.getItem("preferredLanguage") || "fr";
-        let cvFile = "CV_Erwan_Luce_Guedon_fr.pdf";
+        let cvFile = "CV_Erwan_Luce_Guedon.pdf";
         if (preferredLanguage === "en") {
           cvFile = "CV_EN_Erwan_Luce_Guedon.pdf";
         } else if (preferredLanguage === "es") {
