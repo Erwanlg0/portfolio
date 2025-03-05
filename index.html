@@ -13,7 +13,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
@@ -23,157 +24,324 @@
     <script src="assets/js/scripts.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
     <script src="assets/js/vue-scripts.js" defer></script>
-
   </head>
-  <body>
-    <header class="header">
-      <div class="navbar-container">
-        <div class="logo">
-          <i class="fas fa-globe-americas"></i>
+  <body class="bg-gray-100 font-sans">
+    <!-- HEADER -->
+    <header class="header bg-white shadow-md py-4">
+      <div
+        class="navbar-container container mx-auto flex items-center justify-between px-4"
+      >
+        <div class="logo flex items-center text-blue-600 font-bold text-xl">
+          <i class="fas fa-globe-americas mr-2"></i>
           <span data-i18n="logo">ELG</span>
         </div>
-        <nav class="navbar">
-          <ul class="nav-links">
-            <li><a href="#about" data-i18n="nav_about">À propos</a></li>
-            <li><a href="#education" data-i18n="nav_education">Diplômes</a></li>
+
+        <!-- Menu desktop -->
+        <nav class="navbar hidden md:flex">
+          <ul class="nav-links flex space-x-6">
             <li>
-              <a href="#experience" data-i18n="nav_experience">Expérience</a>
+              <a href="#about" class="hover:text-blue-600" data-i18n="nav_about"
+                >À propos</a
+              >
             </li>
-            <li><a href="#skills" data-i18n="nav_skills">Compétences</a></li>
-            <li><a href="#projects" data-i18n="nav_projects">Portfolio</a></li>
             <li>
-              <a href="#certifications" data-i18n="nav_certifications"
-                >Certifications</a>
+              <a
+                href="#education"
+                class="hover:text-blue-600"
+                data-i18n="nav_education"
+                >Diplômes</a
+              >
             </li>
-            <li><a href="#contact" data-i18n="nav_contact">Me contacter</a></li>
+            <li>
+              <a
+                href="#experience"
+                class="hover:text-blue-600"
+                data-i18n="nav_experience"
+                >Expérience</a
+              >
+            </li>
+            <li>
+              <a
+                href="#skills"
+                class="hover:text-blue-600"
+                data-i18n="nav_skills"
+                >Compétences</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="hover:text-blue-600"
+                data-i18n="nav_projects"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a
+                href="#certifications"
+                class="hover:text-blue-600"
+                data-i18n="nav_certifications"
+                >Certifications</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="hover:text-blue-600"
+                data-i18n="nav_contact"
+                >Me contacter</a
+              >
+            </li>
           </ul>
         </nav>
-        <div class="header-icons">
-          <a href="assets/pdf/CV_Erwan_Luce_Guedon.pdf" download class="cv-download" data-i18n="download_cv">
-            <i class="fas fa-download"></i> CV
+
+        <!-- Bouton mobile -->
+        <button
+          id="menu-toggle"
+          class="md:hidden text-blue-600 focus:outline-none"
+        >
+          <i class="fas fa-bars fa-2x"></i>
+        </button>
+
+        <div class="header-icons flex items-center space-x-4">
+          <a
+            href="assets/pdf/CV_Erwan_Luce_Guedon.pdf"
+            download
+            class="cv-download bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center"
+            data-i18n="download_cv"
+          >
+            <i class="fas fa-download mr-2"></i> CV
           </a>
-          <div class="language-selector-container">
-            <img src="assets/images/earth.png" alt="Planète" />
-            <select id="lang" name="lang" class="language-selector">
+          <div class="language-selector-container flex items-center">
+            <img src="assets/images/earth.png" alt="Planète" class="h-6" />
+            <select
+              id="lang"
+              name="lang"
+              class="language-selector bg-gray-200 border border-gray-300 rounded px-2 py-1 ml-2"
+            >
               <option value="fr" data-i18n="lang_fr" selected>Français</option>
               <option value="en" data-i18n="lang_en">Anglais</option>
               <option value="es" data-i18n="lang_es">Espagnol</option>
             </select>
           </div>
         </div>
-        
+      </div>
+
+      <!-- Menu mobile -->
+      <nav id="mobile-menu" class="md:hidden hidden bg-white shadow-md">
+        <ul class="nav-links flex flex-col space-y-4 p-4">
+          <li>
+            <a href="#about" class="hover:text-blue-600" data-i18n="nav_about"
+              >À propos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#education"
+              class="hover:text-blue-600"
+              data-i18n="nav_education"
+              >Diplômes</a
+            >
+          </li>
+          <li>
+            <a
+              href="#experience"
+              class="hover:text-blue-600"
+              data-i18n="nav_experience"
+              >Expérience</a
+            >
+          </li>
+          <li>
+            <a href="#skills" class="hover:text-blue-600" data-i18n="nav_skills"
+              >Compétences</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="hover:text-blue-600"
+              data-i18n="nav_projects"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="#certifications"
+              class="hover:text-blue-600"
+              data-i18n="nav_certifications"
+              >Certifications</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="hover:text-blue-600"
+              data-i18n="nav_contact"
+              >Me contacter</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <section class="cover-section" id="home">
-      <div class="cover-video-overlay"></div>
-      <div class="cover-content">
-        <h1 data-i18n="cover_title">Bienvenue sur Mon Portfolio</h1>
-        <p data-i18n="cover_description">
-          Développeur | Transformons des idées en solutions
-          concrètes
+    <!-- COVER SECTION -->
+    <section
+      class="cover-section relative bg-cover bg-center h-64 md:h-96 flex items-center justify-center"
+      id="home"
+      style="background-image: url('assets/images/fond.jpg')"
+    >
+      <div
+        class="cover-video-overlay absolute inset-0 bg-black opacity-50"
+      ></div>
+      <div class="cover-content relative z-10 text-center text-white px-4">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="cover_title">
+          Bienvenue sur Mon Portfolio
+        </h1>
+        <p class="text-base md:text-lg mb-6" data-i18n="cover_description">
+          Développeur
         </p>
-        <a href="#about" class="button" data-i18n="learn_more"
+        <a
+          href="#about"
+          class="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          data-i18n="learn_more"
           >En savoir plus</a
         >
       </div>
     </section>
 
-    <!-- Section À propos -->
-    <section id="about">
-      <div class="container about-container">
-        <h2 class="about-title" data-i18n="about_title">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 px-4">
+      <div class="container about-container mx-auto">
+        <h2
+          class="about-title text-3xl font-bold text-center mb-8"
+          data-i18n="about_title"
+        >
           --- <em>À propos</em> ---
         </h2>
 
-        <div class="about-content">
-          <div class="profile-photo">
-            <img src="assets/images/pdp.png" alt="Photo de profil" />
-            <div class="photo-overlay"></div>
+        <div class="about-content flex flex-col md:flex-row items-center">
+          <div class="profile-photo relative mb-8 md:mb-0 md:mr-12">
+            <img
+              src="assets/images/pdp.png"
+              alt="Photo de profil"
+              class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-blue-500"
+            />
+            <div
+              class="photo-overlay absolute inset-0 bg-black opacity-0 hover:opacity-50 rounded-full transition duration-300"
+            ></div>
           </div>
 
-          <div class="about-details">
-            <ul class="tabs">
+          <div class="about-details w-full">
+            <ul
+              class="tabs flex flex-wrap space-x-2 mb-4 justify-center md:justify-start"
+            >
               <li
-                class="tab active"
+                class="tab active px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
                 data-tab="presentation"
                 data-i18n="tab_presentation"
               >
                 Présentation
               </li>
-              <li class="tab" data-tab="languages" data-i18n="tab_languages">
+              <li
+                class="tab px-4 py-2 bg-gray-200 rounded cursor-pointer"
+                data-tab="languages"
+                data-i18n="tab_languages"
+              >
                 Langues
               </li>
               <li
-                class="tab"
+                class="tab px-4 py-2 bg-gray-200 rounded cursor-pointer"
                 data-tab="soft-skills"
                 data-i18n="tab_soft_skills"
               >
                 Soft Skills
               </li>
-              <li class="tab" data-tab="passions" data-i18n="tab_passions">
+              <li
+                class="tab px-4 py-2 bg-gray-200 rounded cursor-pointer"
+                data-tab="passions"
+                data-i18n="tab_passions"
+              >
                 Passions
               </li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane active" id="presentation">
+              <div class="tab-pane active p-4 border rounded" id="presentation">
                 <p data-i18n="presentation_content">
                   Je suis Erwan Luce-Guedon, un développeur
                 </p>
               </div>
 
-              <div class="tab-pane" id="languages">
-                <div class="languages-container">
-                  <div class="language">
+              <div class="tab-pane p-4 border rounded" id="languages">
+                <div
+                  class="languages-container grid grid-cols-1 md:grid-cols-2 gap-4"
+                >
+                  <div class="language flex items-center">
                     <img
                       src="assets/images/flags/fr.png"
                       alt="Drapeau Français"
-                      class="flag"
+                      class="flag h-8 mr-2"
                     />
-                    <h3><em data-i18n="language_fr">Français</em></h3>
-                    <p data-i18n="language_fr_level">Langue maternelle</p>
+                    <div>
+                      <h3 class="font-bold">
+                        <em data-i18n="language_fr">Français</em>
+                      </h3>
+                      <p data-i18n="language_fr_level">Langue maternelle</p>
+                    </div>
                   </div>
-                  <div class="language">
+                  <div class="language flex items-center">
                     <img
                       src="assets/images/flags/en.png"
                       alt="Drapeau Britannique"
-                      class="flag"
+                      class="flag h-8 mr-2"
                     />
-                    <h3><em data-i18n="language_en">Anglais</em></h3>
-                    <p data-i18n="language_en_level">Niveau B2</p>
+                    <div>
+                      <h3 class="font-bold">
+                        <em data-i18n="language_en">Anglais</em>
+                      </h3>
+                      <p data-i18n="language_en_level">Niveau B2</p>
+                    </div>
                   </div>
-                  <div class="language">
+                  <div class="language flex items-center">
                     <img
                       src="assets/images/flags/es.png"
                       alt="Drapeau Espagnol"
-                      class="flag"
+                      class="flag h-8 mr-2"
                     />
-                    <h3><em data-i18n="language_es">Espagnol</em></h3>
-                    <p data-i18n="language_es_level">Niveau B1</p>
+                    <div>
+                      <h3 class="font-bold">
+                        <em data-i18n="language_es">Espagnol</em>
+                      </h3>
+                      <p data-i18n="language_es_level">Niveau B1</p>
+                    </div>
                   </div>
-                  <div class="language">
+                  <div class="language flex items-center">
                     <img
                       src="assets/images/flags/cn.png"
                       alt="Drapeau Chinois"
-                      class="flag"
+                      class="flag h-8 mr-2"
                     />
-                    <h3><em data-i18n="language_cn">Chinois</em></h3>
-                    <p data-i18n="language_cn_level">Niveau A2</p>
+                    <div>
+                      <h3 class="font-bold">
+                        <em data-i18n="language_cn">Chinois</em>
+                      </h3>
+                      <p data-i18n="language_cn_level">Niveau A2</p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Soft Skills -->
-              <div class="tab-pane" id="soft-skills">
+              <div class="tab-pane p-4 border rounded" id="soft-skills">
                 <p data-i18n="soft_skills_content">
                   Travail en équipe, Autonomie, Résolution de problèmes,
                   Communication efficace, Gestion du temps.
                 </p>
               </div>
 
-              <!-- Passions -->
-              <div class="tab-pane" id="passions">
+              <div class="tab-pane p-4 border rounded" id="passions">
                 <p data-i18n="passions_content">
-                  Passionné de sports, de voyages et d'informatique. J'aime explorer de nouvelles cultures et capturer des moments uniques.
+                  Passionné de sports, de voyages et d'informatique. J'aime
+                  explorer de nouvelles cultures et capturer des moments
+                  uniques.
                 </p>
               </div>
             </div>
@@ -182,99 +350,135 @@
       </div>
     </section>
 
-    <!-- Section Diplômes-->
-    <section id="education" class="timeline-section">
-      <h2 data-i18n="education_title">Diplômes</h2>
-      <div class="timeline">
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 data-i18n="degree_bachelor">Bachelor Informatique</h3>
-            <p data-i18n="degree_bachelor_institution">ESGI, Paris 12ème</p>
-            <p data-i18n="degree_bachelor_modules">
-              Modules : Développement Web, Langage C, SQL, Linux et Réseaux.
-            </p>
-          </div>
-          <div class="timeline-date">2023 - Présent</div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 data-i18n="degree_baccalaureat">Baccalauréat Général</h3>
-            <p data-i18n="degree_baccalaureat_institution">
-              Lycée Évariste Galois, Sartrouville
-            </p>
-            <p data-i18n="degree_baccalaureat_specialties">
-              Spécialités : Mathématiques, NSI.
-            </p>
-          </div>
-          <div class="timeline-date">2020 - 2023</div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 data-i18n="degree_brevet">Brevet des Collèges</h3>
-            <p data-i18n="degree_brevet_institution">
-              Collège Colette, Sartrouville
-            </p>
-          </div>
-          <div class="timeline-date">2016 - 2020</div>
-        </div>
-      </div>
-    </section>
+    <div class="max-w-5xl mx-auto mt-10 space-y-16">
+      <!-- 🎓 Timeline Diplômes -->
+      <section>
+        <h2 class="text-center text-2xl font-bold mb-6">🎓 Diplômes</h2>
+        <div class="relative">
+          <!-- Ligne de la timeline -->
+          <div
+            class="absolute left-1/2 -translate-x-1/2 w-1 bg-gray-300 h-full"
+          ></div>
 
-    <!-- Section Expérience Professionnelle -->
-    <section id="experience" class="timeline-section">
-      <h2 data-i18n="experience_title">Expérience Professionnelle</h2>
-      <div class="timeline">
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 data-i18n="experience_mcdonalds_title">
-              Employé chez McDonald's
+          <div class="space-y-10">
+            <!-- Bachelor -->
+            <div
+              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Bachelor Informatique</h3>
+              <span class="text-sm text-gray-500">2023 - Présent</span>
+              <p class="mt-2 text-gray-600">ESGI, Paris 12ème</p>
+              <p class="text-gray-600">
+                Modules : Développement Web, Langage C, SQL, Linux, Réseaux
+              </p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
+            ></div>
+            <!-- Bac -->
+            <div
+              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Baccalauréat Général</h3>
+              <span class="text-sm text-gray-500">2020 - 2023</span>
+              <p class="mt-2 text-gray-600">
+                Lycée Évariste Galois, Sartrouville
+              </p>
+              <p class="text-gray-600">Spécialités : Mathématiques, NSI</p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-56 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
+            ></div>
+
+            <!-- Brevet -->
+            <div
+              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Brevet des Collèges</h3>
+              <span class="text-sm text-gray-500">2016 - 2020</span>
+              <p class="mt-2 text-gray-600">Collège Colette, Sartrouville</p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-96 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 💼 Timeline Expériences Professionnelles -->
+      <section>
+        <h2 class="text-center text-2xl font-bold mb-6">
+          💼 Expériences Professionnelles
+        </h2>
+        <div class="relative">
+          <!-- Ligne de la timeline -->
+          <div
+            class="absolute left-1/2 -translate-x-1/2 w-1 bg-gray-300 h-full"
+          ></div>
+
+          <div class="space-y-10">
+            <!-- McDonald's -->
+            <div
+              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Employé chez McDonald's</h3>
+              <span class="text-sm text-gray-500">Octobre 2024 - Présent</span>
+              <p class="mt-2 text-gray-600">McDonald's, Colombes</p>
+              <p class="text-gray-600">Temps Partiel</p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-7 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+            ></div>
+
+            <!-- Quick -->
+            <div
+              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Employé chez Quick</h3>
+              <span class="text-sm text-gray-500">Avril 2024 - Juin 2024</span>
+              <p class="mt-2 text-gray-600">Quick, Sartrouville</p>
+              <p class="text-gray-600">CDI Temps Partiel</p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-52 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+            ></div>
+
+            <!-- Monoprix -->
+            <div
+              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Vendeur</h3>
+              <span class="text-sm text-gray-500"
+                >Février 2024 - Avril 2024</span
+              >
+              <p class="mt-2 text-gray-600">Monoprix, Sartrouville</p>
+              <p class="text-gray-600">CDD Temps Partiel</p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-96 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-16 px-4 bg-gray-100">
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center mb-8"
+          data-i18n="skills_title"
+        >
+          Compétences
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div
+            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-blue-400 to-blue-600 text-white"
+          >
+            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_web">
+              Web
             </h3>
-            <p data-i18n="experience_mcdonalds_institution">
-              McDonald's, Colombes
-            </p>
-            <p data-i18n="experience_mcdonalds_details">
-              Temps Partiel : Octobre 2024 - Présent
-            </p>
-          </div>
-          <div class="timeline-date">Octobre 2024 - Présent</div>
-        </div>
-        <div class="timeline-item right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 data-i18n="experience_quick_title">Employé chez Quick</h3>
-            <p data-i18n="experience_quick_institution">Quick, Sartrouville</p>
-            <p data-i18n="experience_quick_details">
-              CDI Temps Partiel : Avril 2024 - Juin 2024
-            </p>
-          </div>
-          <div class="timeline-date">Avril 2024 - Juin 2024</div>
-        </div>
-        <div class="timeline-item left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 data-i18n="experience_monoprix_title">Vendeur</h3>
-            <p data-i18n="experience_monoprix_institution">Monoprix, Sartrouville</p>
-            <p data-i18n="experience_monoprix_details">
-              CDD Temps Partiel : Février 2024 - Avril 2024
-            </p>
-          </div>
-          <div class="timeline-date">Avril 2024 - Juin 2024</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Compétences -->
-    <section id="skills">
-      <div class="container">
-        <h2 data-i18n="skills_title">Compétences</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3 data-i18n="skill_web">Web</h3>
-            <ul>
+            <ul class="list-disc pl-5">
               <li data-i18n="skill_web_html_css_js">HTML / CSS / JS</li>
               <li data-i18n="skill_web_php">PHP</li>
               <li data-i18n="skill_web_angular">Angular</li>
@@ -283,9 +487,13 @@
             </ul>
           </div>
 
-          <div class="skill-category">
-            <h3 data-i18n="skill_db">Base de données</h3>
-            <ul>
+          <div
+            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-green-400 to-green-600 text-white"
+          >
+            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_db">
+              Base de données
+            </h3>
+            <ul class="list-disc pl-5">
               <li data-i18n="skill_db_mysql">MySQL</li>
               <li data-i18n="skill_db_sqlite">SQLite</li>
               <li data-i18n="skill_db_oracle">Oracle</li>
@@ -293,19 +501,30 @@
             </ul>
           </div>
 
-          <div class="skill-category">
-            <h3 data-i18n="skill_programming">Programmation</h3>
-            <ul>
+          <div
+            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-yellow-400 to-orange-500 text-white"
+          >
+            <h3
+              class="text-2xl font-semibold mb-4"
+              data-i18n="skill_programming"
+            >
+              Programmation
+            </h3>
+            <ul class="list-disc pl-5">
               <li data-i18n="skill_programming_c">C</li>
               <li data-i18n="skill_programming_python">Python</li>
               <li data-i18n="skill_programming_vba">VBA</li>
             </ul>
           </div>
 
-          <div class="skill-category">
-            <h3 data-i18n="skill_other">Autres</h3>
-            <ul>
-              <li data-i18n="skill_other_premiere_pro">Premiere pro</li>
+          <div
+            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-pink-400 to-red-500 text-white"
+          >
+            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_other">
+              Autres
+            </h3>
+            <ul class="list-disc pl-5">
+              <li data-i18n="skill_other_premiere_pro">Premiere Pro</li>
               <li data-i18n="skill_other_photoshop">Photoshop</li>
               <li data-i18n="skill_other_blender">Blender</li>
               <li data-i18n="skill_other_git">Git</li>
@@ -315,24 +534,48 @@
       </div>
     </section>
 
-    <section id="projects" class="portfolio-section">
-      <div class="container" id="projectsApp">
-        <h2>Projets</h2>
-        <div class="project-filters">
-          <button v-for="category in categories" :key="category" @click="filterCategory(category)">
+    <section id="projects" class="portfolio-section py-16 px-4">
+      <div class="container mx-auto" id="projectsApp">
+        <h2 class="text-3xl font-bold text-center mb-8">Projets</h2>
+        <div
+          class="project-filters flex flex-wrap justify-center space-x-4 mb-8"
+        >
+          <button
+            v-for="category in categories"
+            :key="category"
+            @click="filterCategory(category)"
+            class="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded mb-2"
+          >
             {{ category }}
           </button>
         </div>
-        <div class="portfolio-container">
-          <div class="card" v-for="project in filteredProjects" :key="project.id">
-            <h2>{{ project.title }}</h2>
-            <img :src="project.image" :alt="project.title" />
-            <div class="tags">
+
+        <!-- Grille responsive : 1 colonne sur mobile, 2 sur md, 3 sur lg -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="card bg-white rounded-lg shadow-md p-4"
+            v-for="project in filteredProjects"
+            :key="project.id"
+          >
+            <h2 class="text-xl font-semibold mb-2">{{ project.title }}</h2>
+
+            <!-- Conteneur de l’image -->
+            <div
+              class="overflow-hidden w-full h-48 md:h-56 flex items-center justify-center bg-gray-50 rounded-md"
+            >
+              <img
+                :src="project.image"
+                :alt="project.title"
+                class="max-h-full object-contain"
+              />
+            </div>
+
+            <!-- Tags avec couleurs dynamiques -->
+            <div class="tags flex flex-wrap mt-4">
               <span
                 v-for="tag in project.tags"
                 :key="tag"
-                class="tag"
-                :class="tag.toLowerCase()"
+                :class="['tag text-sm rounded-full px-3 py-1 mr-2 mb-2', getTagColor(tag)]"
               >
                 {{ tag }}
               </span>
@@ -341,42 +584,65 @@
         </div>
       </div>
     </section>
-    
 
-    <section id="certifications" class="certifications-section">
-      <div class="container" id="certificationsApp">
-        <h2>Certifications</h2>
-        <div class="certification-filters">
-          <button v-for="category in categories" :key="category" @click="filterCategory(category)">
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="certifications-section py-16 px-4">
+      <div class="container mx-auto" id="certificationsApp">
+        <h2 class="text-3xl font-bold text-center mb-8">Certifications</h2>
+        <div
+          class="certification-filters flex flex-wrap justify-center space-x-4 mb-8"
+        >
+          <button
+            v-for="category in categories"
+            :key="category"
+            @click="filterCategory(category)"
+            class="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded mb-2"
+          >
             {{ category }}
           </button>
         </div>
-        <div class="certifications-container">
+        <div
+          class="certifications-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           <div
-            class="certification-card"
+            class="certification-card bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
             v-for="cert in filteredCertifications"
             :key="cert.id"
           >
-            <img :src="cert.logo" :alt="cert.name" class="certification-logo" />
-            <h3>{{ cert.name }}</h3>
-            <p>{{ cert.organization }}</p>
-            <p>{{ cert.date }}</p>
+            <img
+              :src="cert.logo"
+              :alt="cert.name"
+              class="certification-logo w-24 h-24 mb-4"
+            />
+            <h3 class="text-lg font-semibold mb-2">{{ cert.name }}</h3>
+            <p class="text-gray-700 mb-1">{{ cert.organization }}</p>
+            <p class="text-gray-600">{{ cert.date }}</p>
           </div>
         </div>
       </div>
     </section>
-    
 
-    <!-- Section Contact avec Formulaire -->
-    <section id="contact">
-      <div class="container">
-        <h2 data-i18n="contact_title">Contactez-moi</h2>
-        <p data-i18n="contact_description">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-16 px-4">
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center mb-8"
+          data-i18n="contact_title"
+        >
+          Contactez-moi
+        </h2>
+        <p class="text-center mb-8" data-i18n="contact_description">
           Envoyez-moi un message en remplissant le formulaire ci-dessous :
         </p>
-        <form id="contact-form" class="contact-form">
-          <div class="form-group">
-            <label for="name" data-i18n="contact_label_name">Nom :</label>
+        <form id="contact-form" class="contact-form max-w-lg mx-auto">
+          <div class="form-group mb-4">
+            <label
+              for="name"
+              class="block text-gray-700 mb-2"
+              data-i18n="contact_label_name"
+            >
+              Nom :
+            </label>
             <input
               type="text"
               id="name"
@@ -384,10 +650,17 @@
               required
               placeholder="Votre nom"
               data-i18n-placeholder="contact_placeholder_name"
+              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div class="form-group">
-            <label for="email" data-i18n="contact_label_email">Email :</label>
+          <div class="form-group mb-4">
+            <label
+              for="email"
+              class="block text-gray-700 mb-2"
+              data-i18n="contact_label_email"
+            >
+              Email :
+            </label>
             <input
               type="email"
               id="email"
@@ -395,12 +668,17 @@
               required
               placeholder="Votre email"
               data-i18n-placeholder="contact_placeholder_email"
+              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div class="form-group">
-            <label for="subject" data-i18n="contact_label_subject"
-              >Sujet :</label
+          <div class="form-group mb-4">
+            <label
+              for="subject"
+              class="block text-gray-700 mb-2"
+              data-i18n="contact_label_subject"
             >
+              Sujet :
+            </label>
             <input
               type="text"
               id="subject"
@@ -408,12 +686,17 @@
               required
               placeholder="Sujet de votre message"
               data-i18n-placeholder="contact_placeholder_subject"
+              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div class="form-group">
-            <label for="message" data-i18n="contact_label_message"
-              >Message :</label
+          <div class="form-group mb-6">
+            <label
+              for="message"
+              class="block text-gray-700 mb-2"
+              data-i18n="contact_label_message"
             >
+              Message :
+            </label>
             <textarea
               id="message"
               name="message"
@@ -421,26 +704,39 @@
               required
               placeholder="Votre message"
               data-i18n-placeholder="contact_placeholder_message"
+              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
-          <button type="submit" class="button" data-i18n="contact_send">
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            data-i18n="contact_send"
+          >
             Envoyer
           </button>
         </form>
       </div>
-      <div class="contact-buttons-container">
-        <div class="contact_caps clickableBtn" data-contact="linkedin">
+      <div
+        class="contact-buttons-container flex flex-wrap justify-center space-x-4 mt-8"
+      >
+        <div
+          class="contact_caps clickableBtn flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100"
+          data-contact="linkedin"
+        >
           <img
-            class="contact_caps_pic"
+            class="contact_caps_pic w-12 h-12 mb-2"
             src="assets/images/rs/linkedin.png"
             alt="LinkedIn icon"
           />
           <p class="contact_caps_p" data-i18n="contact_linkedin">LinkedIn</p>
         </div>
 
-        <div class="contact_caps clickableBtn" data-contact="download_cv">
+        <div
+          class="contact_caps clickableBtn flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100"
+          data-contact="download_cv"
+        >
           <img
-            class="contact_caps_pic"
+            class="contact_caps_pic w-12 h-12 mb-2"
             src="assets/images/downloads.png"
             alt="Download icon"
           />
@@ -449,9 +745,12 @@
           </p>
         </div>
 
-        <div class="contact_caps clickableBtn" data-contact="github">
+        <div
+          class="contact_caps clickableBtn flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100"
+          data-contact="github"
+        >
           <img
-            class="contact_caps_pic"
+            class="contact_caps_pic w-12 h-12 mb-2"
             src="assets/images/rs/github.png"
             alt="GitHub icon"
           />
@@ -459,10 +758,22 @@
         </div>
       </div>
     </section>
-    <footer>
-      <p data-i18n="footer_text">
-        &copy; 2024 Erwan Luce--Guédon. Tous droits réservés.
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white py-6 px-4">
+      <p class="text-center" data-i18n="footer_text">
+        &copy; 2025 Erwan Luce--Guédon
       </p>
     </footer>
+
+    <!-- Petit script pour le menu mobile -->
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
   </body>
 </html>
