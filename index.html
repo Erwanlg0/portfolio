@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-i18n="title">Erwan Luce--Guédon | Portfolio</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -13,6 +14,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script
@@ -550,16 +552,15 @@
           </button>
         </div>
 
-        <!-- Grille responsive : 1 colonne sur mobile, 2 sur md, 3 sur lg -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
-            class="card bg-white rounded-lg shadow-md p-4"
+            class="card bg-white rounded-lg shadow-md p-4 cursor-pointer"
             v-for="project in filteredProjects"
             :key="project.id"
+            @click="showProjectDetails(project)"
           >
             <h2 class="text-xl font-semibold mb-2">{{ project.title }}</h2>
 
-            <!-- Conteneur de l’image -->
             <div
               class="overflow-hidden w-full h-48 md:h-56 flex items-center justify-center bg-gray-50 rounded-md"
             >
@@ -570,7 +571,6 @@
               />
             </div>
 
-            <!-- Tags avec couleurs dynamiques -->
             <div class="tags flex flex-wrap mt-4">
               <span
                 v-for="tag in project.tags"
@@ -582,10 +582,47 @@
             </div>
           </div>
         </div>
+
+        <div
+          v-if="selectedProject"
+          class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+          @click.self="closeProjectDetails"
+          v-cloak
+        >
+          <div
+            class="bg-white rounded-lg shadow-lg p-6 w-full max-w-3xl overflow-auto"
+          >
+            <button
+              class="absolute top-2 right-2 text-xl font-bold"
+              @click="closeProjectDetails"
+            ></button>
+            <h2 class="text-2xl font-semibold mb-4">
+              {{ selectedProject.title }}
+            </h2>
+            <div
+              class="overflow-hidden w-full flex items-center justify-center bg-gray-50 rounded-md mb-4"
+            >
+              <img
+                :src="selectedProject.image"
+                :alt="selectedProject.title"
+                class="max-h-full object-contain"
+              />
+            </div>
+            <p class="text-gray-700 mb-4">{{ selectedProject.description }}</p>
+            <div class="tags flex flex-wrap">
+              <span
+                v-for="tag in selectedProject.tags"
+                :key="tag"
+                :class="['tag text-sm rounded-full px-3 py-1 mr-2 mb-2', getTagColor(tag)]"
+              >
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CERTIFICATIONS SECTION -->
     <section id="certifications" class="certifications-section py-16 px-4">
       <div class="container mx-auto" id="certificationsApp">
         <h2 class="text-3xl font-bold text-center mb-8">Certifications</h2>
@@ -596,9 +633,14 @@
             v-for="category in categories"
             :key="category"
             @click="filterCategory(category)"
-            class="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded mb-2"
+            :class="{
+              'bg-blue-500 text-white': currentCategory === category,
+              'bg-gray-200 hover:bg-gray-300': currentCategory !== category,
+              'py-2 px-4 rounded mb-2': true
+            }"
           >
-            {{ category }}
+            {{ category === 'toutes' ? 'Toutes' : (category === 'gratuites' ?
+            'Gratuites' : 'Payantes') }}
           </button>
         </div>
         <div
@@ -608,6 +650,7 @@
             class="certification-card bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
             v-for="cert in filteredCertifications"
             :key="cert.id"
+            @click="goToCertification(cert.url)"
           >
             <img
               :src="cert.logo"
