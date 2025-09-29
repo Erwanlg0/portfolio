@@ -340,11 +340,35 @@
               </div>
 
               <div class="tab-pane p-4 border rounded" id="passions">
-                <p data-i18n="passions_content">
-                  Passionné de sports, de voyages et d'informatique. J'aime
-                  explorer de nouvelles cultures et capturer des moments
-                  uniques.
-                </p>
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="font-bold text-blue-600 mb-2">🏊‍♂️ Sports Aquatiques</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                      <li><strong>Triathlon</strong> - Natation, cyclisme, course à pied</li>
+                      <li><strong>Plongée sous-marine</strong> - Niveau 2 confirmé</li>
+                      <li><strong>Certification Nitrox</strong> - Plongée aux mélanges enrichis</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-bold text-blue-600 mb-2">🔧 Technologies & Électronique</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                      <li><strong>Hardware PC</strong> - Montage et configuration d'ordinateurs</li>
+                      <li><strong>Composants informatiques</strong> - Optimisation et dépannage</li>
+                      <li><strong>Électronique</strong> - Circuits et systèmes embarqués</li>
+                      <li><strong>Veille technologique</strong> - Nouvelles technologies et innovations</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-bold text-blue-600 mb-2">🌍 Autres Passions</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                      <li><strong>Voyages</strong> - Découverte de nouvelles cultures</li>
+                      <li><strong>Photographie</strong> - Capture de moments uniques</li>
+                      <li><strong>Gaming</strong> - Speedrun, optimisation de stratégies</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -391,18 +415,6 @@
             <div
               class="absolute left-1/2 -translate-x-1/2 top-56 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
             ></div>
-
-            <!-- Brevet -->
-            <div
-              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Brevet des Collèges</h3>
-              <span class="text-sm text-gray-500">2016 - 2020</span>
-              <p class="mt-2 text-gray-600">Collège Colette, Sartrouville</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-96 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
-            ></div>
           </div>
         </div>
       </section>
@@ -419,17 +431,30 @@
           ></div>
 
           <div class="space-y-10">
-            <!-- Ch Thoreau -->
+            <!-- Ch Thoreau - Alternance -->
+            <div
+              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
+            >
+              <h3 class="font-bold text-gray-800">Développeur Full-Stack en Alternance</h3>
+              <span class="text-sm text-gray-500">Septembre 2025 - Présent</span>
+              <p class="mt-2 text-gray-600">Ch.Thoreau, Pantin</p>
+              <p class="text-gray-600">Alternance - Contrat de Professionnalisation</p>
+            </div>
+            <div
+              class="absolute left-1/2 -translate-x-1/2 top-7 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+            ></div>
+            
+            <!-- Ch Thoreau - Stage -->
             <div
               class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
             >
-              <h3 class="font-bold text-gray-800">Chef de projet informatique Ch.Thoreau</h3>
-              <span class="text-sm text-gray-500">Juin 2025 - Présent</span>
+              <h3 class="font-bold text-gray-800">Chargé de Développement Full-Stack</h3>
+              <span class="text-sm text-gray-500">Juin 2025 - Août 2025</span>
               <p class="mt-2 text-gray-600">Ch.Thoreau, Pantin</p>
               <p class="text-gray-600">Stage Temps plein</p>
             </div>
             <div
-              class="absolute left-1/2 -translate-x-1/2 top-7 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
+              class="absolute left-1/2 -translate-x-1/2 top-52 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
             ></div>
             
           <div class="space-y-10">
@@ -487,7 +512,7 @@
         >
           Compétences
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           <div
             class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-blue-400 to-blue-600 text-white"
           >
@@ -513,6 +538,8 @@
               <li data-i18n="skill_db_mysql">MySQL</li>
               <li data-i18n="skill_db_sqlite">SQLite</li>
               <li data-i18n="skill_db_oracle">Oracle</li>
+              <li data-i18n="skill_db_nosql">NoSQL</li>
+              <li data-i18n="skill_db_graphql">GraphQL</li>
               <li data-i18n="skill_db_pdo">PDO</li>
             </ul>
           </div>
@@ -528,8 +555,26 @@
             </h3>
             <ul class="list-disc pl-5">
               <li data-i18n="skill_programming_c">C</li>
+              <li data-i18n="skill_programming_java">Java</li>
               <li data-i18n="skill_programming_python">Python</li>
               <li data-i18n="skill_programming_vba">VBA</li>
+              <li data-i18n="skill_programming_assembleur">Assembleur</li>
+            </ul>
+          </div>
+
+          <div
+            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-purple-400 to-indigo-500 text-white"
+          >
+            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_devops">
+              DevOps & Infrastructure
+            </h3>
+            <ul class="list-disc pl-5">
+              <li data-i18n="skill_devops_docker">Docker</li>
+              <li data-i18n="skill_devops_linux_admin">Linux Admin</li>
+              <li data-i18n="skill_devops_windows_admin">Windows Admin</li>
+              <li data-i18n="skill_devops_virtualisation">Virtualisation</li>
+              <li data-i18n="skill_devops_reseaux">Réseaux</li>
+              <li data-i18n="skill_devops_cloud">Cloud</li>
             </ul>
           </div>
 
@@ -622,7 +667,7 @@
                 class="max-h-full object-contain"
               />
             </div>
-            <p class="text-gray-700 mb-4">{{ selectedProject.description }}</p>
+            <div class="text-gray-700 mb-4" v-html="selectedProject.description"></div>
             <div class="tags flex flex-wrap">
               <span
                 v-for="tag in selectedProject.tags"

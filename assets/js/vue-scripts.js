@@ -152,13 +152,62 @@ const projectsApp = Vue.createApp({
       categories: ["Tous", "Personnel", "École"],
       projects: [
         {
+          id: 13,
+          title: "OceanDepth",
+          image: "assets/images/project/subdive.png",
+          tags: [
+            "C",
+            "Gestion Mémoire",
+            "Interface Utilisateur",
+            "Architecture Modulaire",
+          ],
+          category: "École",
+          description:
+            "<strong>Durée :</strong> 2 mois (Septembre - Novembre) | <strong>Équipe :</strong> 3 personnes<br><br>Jeu d'exploration sous-marine développé entièrement en C avec interface console. Le joueur incarne un plongeur explorant les profondeurs océaniques, gérant ses ressources vitales (oxygène, vie, fatigue) tout en affrontant diverses créatures marines. Implémentation complète incluant système de combat au tour par tour, gestion d'inventaire, sauvegarde/chargement, et cartographie d'exploration. Architecture modulaire respectant les contraintes de gestion mémoire stricte et validation des entrées utilisateur.",
+        },
+        {
+          id: 12,
+          title: "Bataille Navale",
+          image: "assets/images/project/navale.png",
+          tags: ["C", "SDL", "Interface Graphique", "Travail d'équipe"],
+          category: "École",
+          description:
+            "<strong>Durée :</strong> 16 heures (Septembre) | <strong>Équipe :</strong> 4 personnes<br><br>Développement intensif d'un jeu de bataille navale en C lors d'une piscine de programmation de 3ème année (16h-8h du matin, équipe de 4 personnes). Implémentation complète avec double interface : version console pour la logique de jeu et version graphique SDL. Challenge technique et humain combinant gestion de projet sous pression, programmation collaborative et optimisation des performances. Projet démontrant l'adaptabilité et la capacité à produire du code de qualité dans des conditions exigeantes.",
+        },
+        {
+          id: 11.5,
+          title: "APP Île-de-France Mobilités",
+          image: "assets/images/project/web.png",
+          tags: ["Android", "Kotlin", "API", "Transport", "Mobile Development"],
+          category: "École",
+          description:
+            "<strong>Durée :</strong> 1 mois (Avril - Mai) | <strong>Équipe :</strong> 2 personnes<br><br>Projet scolaire de développement d'une application Android native en Kotlin, tentative de reproduction de l'application officielle Île-de-France Mobilités. L'application utilise les API et données ouvertes d'IDFM pour offrir la consultation des horaires de transport en temps réel, la planification d'itinéraires multimodaux, et l'accès aux informations sur le réseau francilien (métro, RER, bus, tramway). Ce projet Android a permis d'appréhender l'intégration d'APIs REST complexes, la gestion de données dynamiques en temps réel, et le développement d'interfaces mobiles modernes avec Kotlin.",
+        },
+        {
+          id: 11,
+          title: "LoL Meta Optimizer",
+          image: "assets/images/project/python.png",
+          tags: ["Python", "Data Analysis", "API", "Machine Learning"],
+          category: "Personnel",
+          description:
+            "<strong>Durée :</strong> 1 mois (Mai - Juin) | <strong>Équipe :</strong> Projet solo<br><br>Développement d'un système d'analyse de données pour optimiser les compositions d'équipe et les builds d'objets dans League of Legends. Le projet utilise l'API Riot Games pour collecter des données de parties, applique des algorithmes d'analyse statistique pour identifier les synergies optimales entre champions, objets et runes selon le méta actuel. Cet outil d'aide à la décision démontre mes compétences en data science appliquée au gaming.",
+        },
+        {
           id: 10,
           title: "Business Care",
           image: "assets/images/project/business-care.png",
-          tags: ["Typescript", "JavaScript", "NestJS", "VueJS", "HTML5"],
+          tags: [
+            "Typescript",
+            "JavaScript",
+            "NestJS",
+            "VueJS",
+            "HTML5",
+            "Android",
+            "NFC",
+          ],
           category: "École",
           description:
-            "Business Care est une application web complète (front-end et back-end) développée en équipe.  Elle permet la gestion des rendez-vous, des clients, et des services pour les professionnels.  J'ai principalement travaillé sur le back-end avec NestJS, en utilisant une architecture hexagonale et en implémentant des tests unitaires et d'intégration.",
+            "<strong>Durée :</strong> 5 mois (Janvier - Mai) | <strong>Équipe :</strong> 3 personnes<br><br>Business Care est une application web complète (front-end et back-end) développée en équipe pour la gestion des rendez-vous, clients et services professionnels. J'ai principalement travaillé sur le back-end avec NestJS, utilisant une architecture hexagonale et implémentant des tests unitaires et d'intégration. En complément, j'ai développé une application Android native permettant d'accéder aux fonctionnalités clés directement sur mobile : consultation du planning, lecture et écriture de puces NFC pour l'identification des clients, et synchronisation des données avec l'API web.",
         },
         {
           id: 9,
@@ -167,7 +216,7 @@ const projectsApp = Vue.createApp({
           tags: ["HTML5", "CSS", "JavaScript", "VueJS", "TailwindCSS"],
           category: "Personnel",
           description:
-            "Ce portfolio a été créé pour présenter mes compétences et mes projets. Il est construit avec VueJS et TailwindCSS pour un rendu moderne et réactif. L'accent a été mis sur la simplicité d'utilisation et la clarté de la présentation.",
+            "<strong>Durée :</strong> En cours (Novembre 2024 - Aujourd'hui) | <strong>Équipe :</strong> Projet solo<br><br>Ce portfolio a été créé pour présenter mes compétences et mes projets. Il est construit avec VueJS et TailwindCSS pour un rendu moderne et réactif. L'accent a été mis sur la simplicité d'utilisation et la clarté de la présentation, avec un système de traduction multilingue (FR/EN/ES) et une interface responsive.",
         },
         {
           id: 8,
@@ -177,7 +226,7 @@ const projectsApp = Vue.createApp({
           tags: ["C", "Interface Graphique", "Traitement de Données"],
           category: "École",
           description:
-            "Ce projet consistait à développer un jeu de Tetris en C en utilisant la bibliothèque SDL pour l'interface graphique.  Le projet a permis d'approfondir mes connaissances en C, en gestion de la mémoire et en algorithmique.",
+            "<strong>Durée :</strong> 4 mois (Octobre 2024 - Janvier 2025) | <strong>Équipe :</strong> 3 personnes<br><br>Ce projet consistait à développer un jeu de Tetris en C en utilisant la bibliothèque SDL pour l'interface graphique. Le projet a permis d'approfondir mes connaissances en C, en gestion de la mémoire et en algorithmique, tout en développant des compétences en travail collaboratif et en programmation graphique.",
         },
         {
           id: 7,
@@ -186,7 +235,7 @@ const projectsApp = Vue.createApp({
           tags: ["Assembleur"],
           category: "École",
           description:
-            "Ce projet, réalisé en assembleur x86-64, implémente un algorithme de 'circle packing'.  Il génère une image où des cercles de tailles aléatoires sont disposés sans se chevaucher.  Ce projet m'a permis de comprendre les bases de la programmation en assembleur.",
+            "<strong>Durée :</strong> 4 mois (Octobre - Janvier) | <strong>Équipe :</strong> 3 personnes<br><br>Ce projet, réalisé en assembleur x86-64, implémente un algorithme de 'circle packing'. Il génère une image où des cercles de tailles aléatoires sont disposés sans se chevaucher. Ce projet m'a permis de comprendre les bases de la programmation en assembleur, la gestion mémoire bas niveau et les optimisations de performance.",
         },
         {
           id: 6,
@@ -205,7 +254,7 @@ const projectsApp = Vue.createApp({
           ],
           category: "École",
           description:
-            "Développement complet d'un site web pour une association, incluant la conception de la base de données, le back-end en PHP, le front-end avec HTML, CSS, JavaScript et Bootstrap, ainsi que le déploiement sur un serveur Debian.  Ce projet a été un excellent exercice de gestion de projet de A à Z.",
+            "<strong>Durée :</strong> 7 mois (Janvier - Juillet) | <strong>Équipe :</strong> 3 personnes<br><br>Développement complet d'un site web pour une association, incluant la conception de la base de données, le back-end en PHP, le front-end avec HTML, CSS, JavaScript et Bootstrap, ainsi que le déploiement sur un serveur Debian. Ce projet a été un excellent exercice de gestion de projet de A à Z, combinant travail en équipe, technologies web modernes et administration système.",
         },
         {
           id: 5,
@@ -258,7 +307,7 @@ const projectsApp = Vue.createApp({
           tags: ["Node.js", "JavaScript", "discord.js"],
           category: "Personnel",
           description:
-            "Création d'un bot Discord en JavaScript avec la bibliothèque discord.js.  Le bot peut répondre à des commandes, gérer des rôles, et interagir avec les utilisateurs.  Ce projet a permis d'apprendre les bases de la programmation de bots Discord et l'utilisation de l'API Discord.",
+            "<strong>Durée :</strong> 2018 | <strong>Équipe :</strong> Projet solo<br><br>Création d'un bot Discord en JavaScript avec la bibliothèque discord.js. Le bot peut répondre à des commandes, gérer des rôles, et interagir avec les utilisateurs. Ce projet personnel a permis d'apprendre les bases de la programmation de bots Discord, l'utilisation de l'API Discord, et les concepts de programmation asynchrone en JavaScript.",
         },
       ],
       currentCategory: "Tous",
@@ -293,6 +342,22 @@ const projectsApp = Vue.createApp({
         Typescript: "bg-yellow-400",
         Assembleur: "bg-gray-400",
         Linux: "bg-gray-400",
+        "Data Analysis": "bg-purple-200 text-purple-900",
+        API: "bg-cyan-200 text-cyan-900",
+        "Machine Learning": "bg-indigo-200 text-indigo-900",
+        SDL: "bg-green-200 text-green-900",
+        Jeu: "bg-pink-200 text-pink-900",
+        "Programmation Système": "bg-slate-200 text-slate-900",
+        Algorithmes: "bg-teal-200 text-teal-900",
+        "Gestion Mémoire": "bg-red-200 text-red-900",
+        "Interface Utilisateur": "bg-blue-200 text-blue-900",
+        "Architecture Modulaire": "bg-gray-200 text-gray-900",
+        "Travail d'équipe": "bg-orange-200 text-orange-900",
+        Android: "bg-green-400 text-green-900",
+        Kotlin: "bg-purple-400 text-purple-900",
+        NFC: "bg-blue-300 text-blue-900",
+        Transport: "bg-cyan-300 text-cyan-900",
+        "Mobile Development": "bg-indigo-200 text-indigo-900",
       },
     };
   },
