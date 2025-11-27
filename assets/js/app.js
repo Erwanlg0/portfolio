@@ -117,7 +117,7 @@ createApp({
         titleKey: "skill_programming",
         items: [
           "Python (Data/Scripting)",
-          "Java 21 / C / C++",
+          "Java 21 / C ",
           "Bash / PowerShell",
           "VBA / Assembleur",
         ],
