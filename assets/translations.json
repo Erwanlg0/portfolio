@@ -111,7 +111,11 @@
     "404_message": "Oups ! Il semblerait que vous ayez exploré une zone non cartographiée de mon portfolio.",
     "404_button": "Retour à l'accueil",
     "error_tech": "Erreur : Objet 'Page' introuvable dans le module 'Reality'.",
-    "error_stack": "> Stack trace : Utilisateur perdu dans la navigation."
+    "error_stack": "> Stack trace : Utilisateur perdu dans la navigation.",
+    "lang_name_fr": "Français",
+    "lang_name_en": "Anglais",
+    "lang_name_es": "Espagnol",
+    "lang_name_cn": "Chinois"
   },
   "en": {
     "title": "Erwan Luce-Guedon | Portfolio",
@@ -225,7 +229,11 @@
     "404_message": "Oops! It seems you've explored an uncharted area of my portfolio.",
     "404_button": "Back to Home",
     "error_tech": "Error: Object 'Page' not found in module 'Reality'.",
-    "error_stack": "> Stack trace: User lost in navigation."
+    "error_stack": "> Stack trace: User lost in navigation.",
+    "lang_name_fr": "French",
+    "lang_name_en": "English",
+    "lang_name_es": "Spanish",
+    "lang_name_cn": "Chinese"
   },
   "es": {
     "title": "Erwan Luce-Guedon | Portafolio",
@@ -339,6 +347,10 @@
     "404_message": "¡Vaya! Parece que has explorado una zona no cartografiada de mi portafolio.",
     "404_button": "Volver al inicio",
     "error_tech": "Error: Objeto 'Page' no encontrado en el módulo 'Reality'.",
-    "error_stack": "> Stack trace: Usuario perdido en la navegación."
+    "error_stack": "> Stack trace: Usuario perdido en la navegación.",
+    "lang_name_fr": "Francés",
+    "lang_name_en": "Inglés",
+    "lang_name_es": "Español",
+    "lang_name_cn": "Chino"
   }
 }
