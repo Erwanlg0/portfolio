@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-16TJJHNKE5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-16TJJHNKE5");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | Erwan Luce-Guedon</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: { colors: { primary: "#3B82F6", darkbg: "#0f172a" } },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+
+    <style>
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body
+    id="app"
+    class="h-full bg-gray-50 text-gray-800 dark:bg-darkbg dark:text-gray-200 transition-colors duration-300 overflow-hidden"
+    v-cloak
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="assets/images/fond.jpg"
+        class="w-full h-full object-cover opacity-10 dark:opacity-5"
+        alt="Background"
+        onerror="this.style.display='none'"
+      />
+    </div>
+
+    <div
+      class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center"
+    >
+      <div class="mb-8 animate-float">
+        <div class="relative inline-block">
+          <i class="fas fa-ghost text-9xl text-gray-300 dark:text-gray-700"></i>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-4xl font-bold text-primary">404</span>
+          </div>
+        </div>
+      </div>
+
+      <h1
+        class="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
+      >
+        {{ t('title') }}
+      </h1>
+
+      <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-lg mx-auto">
+        {{ t('message') }}
+      </p>
+
+      <div
+        class="mb-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg font-mono text-sm text-red-500 border-l-4 border-red-500 inline-block text-left"
+      >
+        <span class="font-bold">Error:</span> Object 'Page' not found in module
+        'Reality'.<br />
+        <span class="text-gray-500"
+          >> Stack trace: User lost in navigation.</span
+        >
+      </div>
+
+      <a
+        href="./"
+        class="group relative bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 flex items-center"
+      >
+        <i
+          class="fas fa-home mr-2 group-hover:-translate-x-1 transition-transform"
+        ></i>
+        {{ t('button') }}
+      </a>
+    </div>
+
+    <script>
+      const { createApp, ref, onMounted } = Vue;
+
+      createApp({
+        setup() {
+          const lang = ref(localStorage.getItem("preferredLanguage") || "fr");
+          const content = {
+            fr: {
+              title: "Page Introuvable",
+              message:
+                "Oups ! Il semblerait que vous ayez exploré une zone non cartographiée de mon portfolio.",
+              button: "Retour à l'accueil",
+            },
+            en: {
+              title: "Page Not Found",
+              message:
+                "Oops! It seems you've explored anuncharted area of my portfolio.",
+              button: "Back to Home",
+            },
+            es: {
+              title: "Página no encontrada",
+              message:
+                "¡Vaya! Parece que has explorado una zona no cartografiada de mi portafolio.",
+              button: "Volver al inicio",
+            },
+          };
+
+          const t = (key) => content[lang.value]?.[key] || content["fr"][key];
+
+          onMounted(() => {
+            const isDark =
+              localStorage.getItem("theme") === "dark" ||
+              (!("theme" in localStorage) &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches);
+
+            if (isDark) document.documentElement.classList.add("dark");
+            else document.documentElement.classList.remove("dark");
+          });
+
+          return { t };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

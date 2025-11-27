@@ -1,881 +1,785 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-16TJJHNKE5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-16TJJHNKE5");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="title">Erwan Luce--Guédon | Portfolio</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    <title>Erwan Luce-Guedon | Portfolio</title>
+
+    <meta
+      name="description"
+      content="Portfolio d'Erwan Luce-Guedon, Développeur Full Stack & DevOps."
     />
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <meta property="og:title" content="Erwan Luce-Guedon | Portfolio" />
+    <meta
+      property="og:description"
+      content="Développeur Full Stack spécialisé Vue.js, Python et Architecture Système."
+    />
+    <meta property="og:image" content="assets/images/pdp.webp" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: { colors: { primary: "#3B82F6", darkbg: "#0f172a" } },
+        },
+      };
+    </script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
-      defer
     ></script>
-    <script src="assets/js/api-keys.js" defer></script>
-    <script src="assets/js/scripts.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
-    <script src="assets/js/vue-scripts.js" defer></script>
-  </head>
-  <body class="bg-gray-100 font-sans">
-    <!-- HEADER -->
-    <header class="header bg-white shadow-md py-4">
-      <div
-        class="navbar-container container mx-auto flex items-center justify-between px-4"
-      >
-        <div class="logo flex items-center text-blue-600 font-bold text-xl">
-          <i class="fas fa-globe-americas mr-2"></i>
-          <span data-i18n="logo">ELG</span>
-        </div>
 
-        <!-- Menu desktop -->
-        <nav class="navbar hidden md:flex">
-          <ul class="nav-links flex space-x-6">
-            <li>
-              <a href="#about" class="hover:text-blue-600" data-i18n="nav_about"
-                >À propos</a
-              >
-            </li>
-            <li>
-              <a
-                href="#education"
-                class="hover:text-blue-600"
-                data-i18n="nav_education"
-                >Diplômes</a
-              >
-            </li>
-            <li>
-              <a
-                href="#experience"
-                class="hover:text-blue-600"
-                data-i18n="nav_experience"
-                >Expérience</a
-              >
-            </li>
-            <li>
-              <a
-                href="#skills"
-                class="hover:text-blue-600"
-                data-i18n="nav_skills"
-                >Compétences</a
-              >
-            </li>
-            <li>
-              <a
-                href="#projects"
-                class="hover:text-blue-600"
-                data-i18n="nav_projects"
-                >Portfolio</a
-              >
-            </li>
-            <li>
-              <a
-                href="#certifications"
-                class="hover:text-blue-600"
-                data-i18n="nav_certifications"
-                >Certifications</a
-              >
-            </li>
-            <li>
-              <a
-                href="#contact"
-                class="hover:text-blue-600"
-                data-i18n="nav_contact"
-                >Me contacter</a
-              >
-            </li>
-          </ul>
+    <style>
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 0.3s;
+      }
+      .fade-enter-from,
+      .fade-leave-to {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body
+    id="app"
+    class="bg-gray-50 text-gray-800 dark:bg-darkbg dark:text-gray-200 transition-colors duration-300"
+    v-cloak
+  >
+    <header
+      class="fixed w-full z-50 glass-nav shadow-sm dark:shadow-gray-800 transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-primary tracking-tighter"
+          >ELG<span class="text-gray-400">.dev</span></a
+        >
+
+        <nav class="hidden md:flex items-center space-x-6 font-medium">
+          <a href="#about" class="hover:text-primary transition"
+            >{{ t('nav_about') }}</a
+          >
+          <a href="#skills" class="hover:text-primary transition"
+            >{{ t('nav_skills') }}</a
+          >
+          <a href="#experience" class="hover:text-primary transition"
+            >{{ t('nav_experience') }}</a
+          >
+          <a href="#projects" class="hover:text-primary transition"
+            >{{ t('nav_projects') }}</a
+          >
+          <a href="#certifications" class="hover:text-primary transition"
+            >{{ t('nav_certifications') }}</a
+          >
+          <a href="#contact" class="hover:text-primary transition"
+            >{{ t('nav_contact') }}</a
+          >
         </nav>
 
-        <!-- Bouton mobile -->
-        <button
-          id="menu-toggle"
-          class="md:hidden text-blue-600 focus:outline-none"
-        >
-          <i class="fas fa-bars fa-2x"></i>
-        </button>
+        <div class="flex items-center space-x-4">
+          <button
+            @click="toggleTheme"
+            class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          >
+            <i
+              class="fas"
+              :class="isDark ? 'fa-sun text-yellow-400' : 'fa-moon text-gray-600'"
+            ></i>
+          </button>
 
-        <div class="header-icons flex items-center space-x-4">
+          <div class="relative">
+            <button
+              @click.stop="showLangMenu = !showLangMenu"
+              class="flex items-center space-x-1 font-bold px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            >
+              <span>{{ currentLang.toUpperCase() }}</span>
+              <i
+                class="fas fa-chevron-down text-xs transition-transform"
+                :class="{'rotate-180': showLangMenu}"
+              ></i>
+            </button>
+
+            <div
+              v-if="showLangMenu"
+              class="absolute right-0 mt-2 w-32 bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden border border-gray-100 dark:border-gray-700 z-50"
+            >
+              <button
+                @click="switchLang('fr')"
+                class="block w-full text-left px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 transition flex items-center justify-between"
+              >
+                Français
+                <i
+                  v-if="currentLang === 'fr'"
+                  class="fas fa-check text-primary text-xs"
+                ></i>
+              </button>
+              <button
+                @click="switchLang('en')"
+                class="block w-full text-left px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 transition flex items-center justify-between"
+              >
+                English
+                <i
+                  v-if="currentLang === 'en'"
+                  class="fas fa-check text-primary text-xs"
+                ></i>
+              </button>
+              <button
+                @click="switchLang('es')"
+                class="block w-full text-left px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 transition flex items-center justify-between"
+              >
+                Español
+                <i
+                  v-if="currentLang === 'es'"
+                  class="fas fa-check text-primary text-xs"
+                ></i>
+              </button>
+            </div>
+            <div
+              v-if="showLangMenu"
+              @click="showLangMenu = false"
+              class="fixed inset-0 z-40 cursor-default"
+            ></div>
+          </div>
+
           <a
-            href="assets/pdf/CV_Erwan_Luce_Guedon.pdf"
+            :href="cvLink"
             download
-            class="cv-download bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center"
-            data-i18n="download_cv"
+            class="hidden md:inline-flex items-center bg-primary hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-blue-500/30"
           >
             <i class="fas fa-download mr-2"></i> CV
           </a>
-          <div class="language-selector-container flex items-center">
-            <img src="assets/images/earth.png" alt="Planète" class="h-6" />
-            <select
-              id="lang"
-              name="lang"
-              class="language-selector bg-gray-200 border border-gray-300 rounded px-2 py-1 ml-2"
-            >
-              <option value="fr" data-i18n="lang_fr" selected>Français</option>
-              <option value="en" data-i18n="lang_en">Anglais</option>
-              <option value="es" data-i18n="lang_es">Espagnol</option>
-            </select>
-          </div>
         </div>
       </div>
-
-      <!-- Menu mobile -->
-      <nav id="mobile-menu" class="md:hidden hidden bg-white shadow-md">
-        <ul class="nav-links flex flex-col space-y-4 p-4">
-          <li>
-            <a href="#about" class="hover:text-blue-600" data-i18n="nav_about"
-              >À propos</a
-            >
-          </li>
-          <li>
-            <a
-              href="#education"
-              class="hover:text-blue-600"
-              data-i18n="nav_education"
-              >Diplômes</a
-            >
-          </li>
-          <li>
-            <a
-              href="#experience"
-              class="hover:text-blue-600"
-              data-i18n="nav_experience"
-              >Expérience</a
-            >
-          </li>
-          <li>
-            <a href="#skills" class="hover:text-blue-600" data-i18n="nav_skills"
-              >Compétences</a
-            >
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="hover:text-blue-600"
-              data-i18n="nav_projects"
-              >Portfolio</a
-            >
-          </li>
-          <li>
-            <a
-              href="#certifications"
-              class="hover:text-blue-600"
-              data-i18n="nav_certifications"
-              >Certifications</a
-            >
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="hover:text-blue-600"
-              data-i18n="nav_contact"
-              >Me contacter</a
-            >
-          </li>
-        </ul>
-      </nav>
     </header>
 
-    <!-- COVER SECTION -->
     <section
-      class="cover-section relative bg-cover bg-center h-64 md:h-96 flex items-center justify-center"
-      id="home"
-      style="background-image: url('assets/images/fond.jpg')"
+      id="about"
+      class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden"
     >
-      <div
-        class="cover-video-overlay absolute inset-0 bg-black opacity-50"
-      ></div>
-      <div class="cover-content relative z-10 text-center text-white px-4">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="cover_title">
-          Bienvenue sur Mon Portfolio
+      <div class="absolute inset-0 z-0">
+        <img
+          src="assets/images/fond.jpg"
+          class="w-full h-full object-cover opacity-10 dark:opacity-5"
+          alt="Background"
+        />
+      </div>
+      <div class="container mx-auto px-4 z-10 text-center">
+        <div class="mb-6 relative inline-block">
+          <img
+            src="assets/images/pdp.webp"
+            alt="Erwan"
+            class="w-40 h-40 rounded-full border-4 border-primary shadow-2xl object-cover mx-auto"
+          />
+          <div
+            class="absolute bottom-2 right-2 w-6 h-6 bg-green-500 border-4 border-white dark:border-gray-900 rounded-full"
+          ></div>
+        </div>
+        <h1
+          class="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600"
+        >
+          {{ t('title').split('|')[0] }}
         </h1>
-        <p class="text-base md:text-lg mb-6" data-i18n="cover_description">
-          Développeur
+        <p
+          class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+        >
+          {{ t('cover_description') }}
         </p>
-        <a
-          href="#about"
-          class="button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          data-i18n="learn_more"
-          >En savoir plus</a
-        >
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-16 px-4">
-      <div class="container about-container mx-auto">
-        <h2
-          class="about-title text-3xl font-bold text-center mb-8"
-          data-i18n="about_title"
-        >
-          --- <em>À propos</em> ---
-        </h2>
-
-        <div class="about-content flex flex-col md:flex-row items-center">
-          <div class="profile-photo relative mb-8 md:mb-0 md:mr-12">
-            <img
-              src="assets/images/pdp.png"
-              alt="Photo de profil"
-              class="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-blue-500"
-            />
-            <div
-              class="photo-overlay absolute inset-0 bg-black opacity-0 hover:opacity-50 rounded-full transition duration-300"
-            ></div>
-          </div>
-
-          <div class="about-details w-full">
-            <ul
-              class="tabs flex flex-wrap space-x-2 mb-4 justify-center md:justify-start"
-            >
-              <li
-                class="tab active px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
-                data-tab="presentation"
-                data-i18n="tab_presentation"
-              >
-                Présentation
-              </li>
-              <li
-                class="tab px-4 py-2 bg-gray-200 rounded cursor-pointer"
-                data-tab="languages"
-                data-i18n="tab_languages"
-              >
-                Langues
-              </li>
-              <li
-                class="tab px-4 py-2 bg-gray-200 rounded cursor-pointer"
-                data-tab="soft-skills"
-                data-i18n="tab_soft_skills"
-              >
-                Soft Skills
-              </li>
-              <li
-                class="tab px-4 py-2 bg-gray-200 rounded cursor-pointer"
-                data-tab="passions"
-                data-i18n="tab_passions"
-              >
-                Passions
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active p-4 border rounded" id="presentation">
-                <p data-i18n="presentation_content">
-                  Je suis Erwan Luce-Guedon, un développeur
-                </p>
-              </div>
-
-              <div class="tab-pane p-4 border rounded" id="languages">
-                <div
-                  class="languages-container grid grid-cols-1 md:grid-cols-2 gap-4"
-                >
-                  <div class="language flex items-center">
-                    <img
-                      src="assets/images/flags/fr.png"
-                      alt="Drapeau Français"
-                      class="flag h-8 mr-2"
-                    />
-                    <div>
-                      <h3 class="font-bold">
-                        <em data-i18n="language_fr">Français</em>
-                      </h3>
-                      <p data-i18n="language_fr_level">Langue maternelle</p>
-                    </div>
-                  </div>
-                  <div class="language flex items-center">
-                    <img
-                      src="assets/images/flags/en.png"
-                      alt="Drapeau Britannique"
-                      class="flag h-8 mr-2"
-                    />
-                    <div>
-                      <h3 class="font-bold">
-                        <em data-i18n="language_en">Anglais</em>
-                      </h3>
-                      <p data-i18n="language_en_level">Niveau B2</p>
-                    </div>
-                  </div>
-                  <div class="language flex items-center">
-                    <img
-                      src="assets/images/flags/es.png"
-                      alt="Drapeau Espagnol"
-                      class="flag h-8 mr-2"
-                    />
-                    <div>
-                      <h3 class="font-bold">
-                        <em data-i18n="language_es">Espagnol</em>
-                      </h3>
-                      <p data-i18n="language_es_level">Niveau B1</p>
-                    </div>
-                  </div>
-                  <div class="language flex items-center">
-                    <img
-                      src="assets/images/flags/cn.png"
-                      alt="Drapeau Chinois"
-                      class="flag h-8 mr-2"
-                    />
-                    <div>
-                      <h3 class="font-bold">
-                        <em data-i18n="language_cn">Chinois</em>
-                      </h3>
-                      <p data-i18n="language_cn_level">Niveau A2</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="tab-pane p-4 border rounded" id="soft-skills">
-                <p data-i18n="soft_skills_content">
-                  Travail en équipe, Autonomie, Résolution de problèmes,
-                  Communication efficace, Gestion du temps.
-                </p>
-              </div>
-
-              <div class="tab-pane p-4 border rounded" id="passions">
-                <div class="space-y-4">
-                  <div>
-                    <h4 class="font-bold text-blue-600 mb-2">🏊‍♂️ Sports Aquatiques</h4>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                      <li><strong>Triathlon</strong> - Natation, cyclisme, course à pied</li>
-                      <li><strong>Plongée sous-marine</strong> - Niveau 2 confirmé</li>
-                      <li><strong>Certification Nitrox</strong> - Plongée aux mélanges enrichis</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 class="font-bold text-blue-600 mb-2">🔧 Technologies & Électronique</h4>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                      <li><strong>Hardware PC</strong> - Montage et configuration d'ordinateurs</li>
-                      <li><strong>Composants informatiques</strong> - Optimisation et dépannage</li>
-                      <li><strong>Électronique</strong> - Circuits et systèmes embarqués</li>
-                      <li><strong>Veille technologique</strong> - Nouvelles technologies et innovations</li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 class="font-bold text-blue-600 mb-2">🌍 Autres Passions</h4>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                      <li><strong>Voyages</strong> - Découverte de nouvelles cultures</li>
-                      <li><strong>Photographie</strong> - Capture de moments uniques</li>
-                      <li><strong>Gaming</strong> - Speedrun, optimisation de stratégies</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="#contact"
+            class="bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-blue-600 transition shadow-lg shadow-blue-500/30"
+          >
+            {{ t('contact_title') }}
+          </a>
+          <a
+            href="#projects"
+            class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 px-8 py-3 rounded-full font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+          >
+            {{ t('nav_projects') }}
+          </a>
         </div>
       </div>
     </section>
 
-    <div class="max-w-5xl mx-auto mt-10 space-y-16">
-      <!-- 🎓 Timeline Diplômes -->
-      <section>
-        <h2 class="text-center text-2xl font-bold mb-6">🎓 Diplômes</h2>
-        <div class="relative">
-          <!-- Ligne de la timeline -->
-          <div
-            class="absolute left-1/2 -translate-x-1/2 w-1 bg-gray-300 h-full"
-          ></div>
-
-          <div class="space-y-10">
-            <!-- Bachelor -->
-            <div
-              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Bachelor Informatique</h3>
-              <span class="text-sm text-gray-500">2023 - Présent</span>
-              <p class="mt-2 text-gray-600">ESGI, Paris 12ème</p>
-              <p class="text-gray-600">
-                Modules : Développement Web, Langage C, SQL, Linux, Réseaux
-              </p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-8 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
-            ></div>
-            <!-- Bac -->
-            <div
-              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Baccalauréat Général</h3>
-              <span class="text-sm text-gray-500">2020 - 2023</span>
-              <p class="mt-2 text-gray-600">
-                Lycée Évariste Galois, Sartrouville
-              </p>
-              <p class="text-gray-600">Spécialités : Mathématiques, NSI</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-56 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full border-2 border-white"
-            ></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 💼 Timeline Expériences Professionnelles -->
-      <section>
-        <h2 class="text-center text-2xl font-bold mb-6">
-          💼 Expériences Professionnelles
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-16">
+          <span class="text-primary">01.</span> {{ t('skills_title') }}
         </h2>
-        <div class="relative">
-          <!-- Ligne de la timeline -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div
-            class="absolute left-1/2 -translate-x-1/2 w-1 bg-gray-300 h-full"
-          ></div>
-
-          <div class="space-y-10">
-            <!-- Ch Thoreau - Alternance -->
-            <div
-              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Développeur Full-Stack en Alternance</h3>
-              <span class="text-sm text-gray-500">Septembre 2025 - Présent</span>
-              <p class="mt-2 text-gray-600">Ch.Thoreau, Pantin</p>
-              <p class="text-gray-600">Alternance - Contrat de Professionnalisation</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-7 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
-            ></div>
-            
-            <!-- Ch Thoreau - Stage -->
-            <div
-              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Chargé de Développement Full-Stack</h3>
-              <span class="text-sm text-gray-500">Juin 2025 - Août 2025</span>
-              <p class="mt-2 text-gray-600">Ch.Thoreau, Pantin</p>
-              <p class="text-gray-600">Stage Temps plein</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-52 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
-            ></div>
-            
-          <div class="space-y-10">
-            <!-- McDonald's -->
-            <div
-              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Employé chez McDonald's</h3>
-              <span class="text-sm text-gray-500">Octobre 2024 - Janvier 2025</span>
-              <p class="mt-2 text-gray-600">McDonald's, Colombes</p>
-              <p class="text-gray-600">Temps Partiel</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-7 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
-            ></div>
-
-            <!-- Quick -->
-            <div
-              class="relative ml-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Employé chez Quick</h3>
-              <span class="text-sm text-gray-500">Avril 2024 - Juin 2024</span>
-              <p class="mt-2 text-gray-600">Quick, Sartrouville</p>
-              <p class="text-gray-600">CDI Temps Partiel</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-52 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
-            ></div>
-
-            <!-- Monoprix -->
-            <div
-              class="relative mr-auto w-5/12 bg-white shadow-md p-4 rounded-lg"
-            >
-              <h3 class="font-bold text-gray-800">Vendeur</h3>
-              <span class="text-sm text-gray-500"
-                >Février 2024 - Avril 2024</span
-              >
-              <p class="mt-2 text-gray-600">Monoprix, Sartrouville</p>
-              <p class="text-gray-600">CDD Temps Partiel</p>
-            </div>
-            <div
-              class="absolute left-1/2 -translate-x-1/2 top-96 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"
-            ></div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="py-16 px-4 bg-gray-100">
-      <div class="container mx-auto">
-        <h2
-          class="text-3xl font-bold text-center mb-8"
-          data-i18n="skills_title"
-        >
-          Compétences
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-          <div
-            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-blue-400 to-blue-600 text-white"
+            v-for="group in skillGroups"
+            :key="group.id"
+            class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-t-4"
+            :class="group.border"
           >
-            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_web">
-              Web
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+              <i :class="[group.icon, 'mr-2', group.color]"></i>
+              {{ t(group.titleKey) }}
             </h3>
-            <ul class="list-disc pl-5">
-              <li data-i18n="skill_web_html_css_js">HTML / CSS / JS</li>
-              <li data-i18n="skill_web_php">PHP</li>
-              <li data-i18n="skill_web_angular">Angular</li>
-              <li data-i18n="skill_web_typescript">Typescript</li>
-              <li data-i18n="skill_web_nodejs">NodeJs</li>
-            </ul>
-          </div>
-
-          <div
-            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-green-400 to-green-600 text-white"
-          >
-            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_db">
-              Base de données
-            </h3>
-            <ul class="list-disc pl-5">
-              <li data-i18n="skill_db_mysql">MySQL</li>
-              <li data-i18n="skill_db_sqlite">SQLite</li>
-              <li data-i18n="skill_db_oracle">Oracle</li>
-              <li data-i18n="skill_db_nosql">NoSQL</li>
-              <li data-i18n="skill_db_graphql">GraphQL</li>
-              <li data-i18n="skill_db_pdo">PDO</li>
-            </ul>
-          </div>
-
-          <div
-            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-yellow-400 to-orange-500 text-white"
-          >
-            <h3
-              class="text-2xl font-semibold mb-4"
-              data-i18n="skill_programming"
-            >
-              Programmation
-            </h3>
-            <ul class="list-disc pl-5">
-              <li data-i18n="skill_programming_c">C</li>
-              <li data-i18n="skill_programming_java">Java</li>
-              <li data-i18n="skill_programming_python">Python</li>
-              <li data-i18n="skill_programming_vba">VBA</li>
-              <li data-i18n="skill_programming_assembleur">Assembleur</li>
-            </ul>
-          </div>
-
-          <div
-            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-purple-400 to-indigo-500 text-white"
-          >
-            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_devops">
-              DevOps & Infrastructure
-            </h3>
-            <ul class="list-disc pl-5">
-              <li data-i18n="skill_devops_docker">Docker</li>
-              <li data-i18n="skill_devops_linux_admin">Linux Admin</li>
-              <li data-i18n="skill_devops_windows_admin">Windows Admin</li>
-              <li data-i18n="skill_devops_virtualisation">Virtualisation</li>
-              <li data-i18n="skill_devops_reseaux">Réseaux</li>
-              <li data-i18n="skill_devops_cloud">Cloud</li>
-            </ul>
-          </div>
-
-          <div
-            class="p-6 rounded-xl shadow-lg bg-gradient-to-r from-pink-400 to-red-500 text-white"
-          >
-            <h3 class="text-2xl font-semibold mb-4" data-i18n="skill_other">
-              Autres
-            </h3>
-            <ul class="list-disc pl-5">
-              <li data-i18n="skill_other_premiere_pro">Premiere Pro</li>
-              <li data-i18n="skill_other_photoshop">Photoshop</li>
-              <li data-i18n="skill_other_blender">Blender</li>
-              <li data-i18n="skill_other_git">Git</li>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+              <li v-for="item in group.items" :key="item">{{ item }}</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="portfolio-section py-16 px-4">
-      <div class="container mx-auto" id="projectsApp">
-        <h2 class="text-3xl font-bold text-center mb-8">Projets</h2>
+    <section id="experience" class="py-20 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl font-bold text-center mb-16">
+          <span class="text-primary">02.</span> {{ t('nav_experience') }}
+        </h2>
         <div
-          class="project-filters flex flex-wrap justify-center space-x-4 mb-8"
+          class="space-y-12 border-l-2 border-gray-200 dark:border-gray-700 ml-4 md:ml-0 pl-8 md:pl-0"
         >
-          <button
-            v-for="category in categories"
-            :key="category"
-            @click="filterCategory(category)"
-            class="bg-gray-200 hover:bg-gray-300 py-2 px-4 rounded mb-2"
+          <div
+            v-for="exp in experiences"
+            :key="exp.id"
+            class="relative md:flex items-center justify-between group"
           >
-            {{ category }}
+            <div
+              class="absolute -left-[41px] md:left-1/2 md:-translate-x-1/2 w-5 h-5 rounded-full border-4 border-white dark:border-gray-900"
+              :class="exp.colorClass"
+            ></div>
+
+            <div class="hidden md:block w-5/12 text-right pr-8">
+              <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+                {{ t(exp.roleKey) }}
+              </h3>
+              <p
+                class="text-gray-500 font-mono text-sm mt-1"
+                :class="{'text-primary': exp.isCurrent}"
+              >
+                {{ exp.dateKey ? t(exp.dateKey) : '' }}
+              </p>
+            </div>
+
+            <div class="md:w-5/12 md:pl-8">
+              <div class="md:hidden mb-2">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-white">
+                  {{ t(exp.roleKey) }}
+                </h3>
+                <p class="text-gray-500 font-mono text-sm">
+                  {{ exp.company ? exp.company + ' • ' : '' }}{{ exp.dateKey ?
+                  t(exp.dateKey) : '' }}
+                </p>
+              </div>
+
+              <div
+                class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-sm"
+                :class="{'border-l-4 border-primary': exp.isCurrent}"
+              >
+                <div v-if="exp.isGroup">
+                  <ul
+                    class="text-sm text-gray-600 dark:text-gray-400 space-y-2"
+                  >
+                    <li
+                      v-for="job in exp.jobs"
+                      :key="job.companyKey"
+                      class="flex justify-between"
+                    >
+                      <span><strong>{{ t(job.companyKey) }}</strong></span>
+                      <span class="text-gray-400">{{ t(job.dateKey) }}</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div v-else>
+                  <p class="text-gray-600 dark:text-gray-300 font-bold mb-2">
+                    {{ t(exp.typeKey) }}
+                  </p>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    {{ t(exp.descKey) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-darkbg">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          <span class="text-primary">03.</span> {{ t('nav_projects') }}
+        </h2>
+
+        <div class="flex justify-center space-x-2 mb-12 overflow-x-auto pb-4">
+          <button
+            v-for="cat in categories"
+            :key="cat.id"
+            @click="currentCategoryId = cat.id"
+            :class="currentCategoryId === cat.id ? 'bg-primary text-white' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'"
+            class="px-6 py-2 rounded-full transition whitespace-nowrap shadow-sm"
+          >
+            {{ t(cat.key) }}
           </button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
-            class="card bg-white rounded-lg shadow-md p-4 cursor-pointer"
             v-for="project in filteredProjects"
             :key="project.id"
-            @click="showProjectDetails(project)"
+            @click="openProject(project)"
+            class="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-1"
           >
-            <h2 class="text-xl font-semibold mb-2">{{ project.title }}</h2>
-
             <div
-              class="overflow-hidden w-full h-48 md:h-56 flex items-center justify-center bg-gray-50 rounded-md"
+              class="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700 p-4 flex items-center justify-center"
             >
               <img
                 :src="project.image"
-                :alt="project.title"
-                class="max-h-full object-contain"
+                :alt="t(project.titleKey)"
+                loading="lazy"
+                class="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-110"
               />
+
+              <div
+                class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <span
+                  class="text-white font-bold bg-primary/80 px-4 py-2 rounded-full backdrop-blur-sm"
+                >
+                  <i class="fas fa-eye mr-2"></i> {{ t('btn_view_details') }}
+                </span>
+              </div>
             </div>
 
-            <div class="tags flex flex-wrap mt-4">
-              <span
-                v-for="tag in project.tags"
-                :key="tag"
-                :class="['tag text-sm rounded-full px-3 py-1 mr-2 mb-2', getTagColor(tag)]"
-              >
-                {{ tag }}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          v-if="selectedProject"
-          class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-          @click.self="closeProjectDetails"
-          v-cloak
-        >
-          <div
-            class="bg-white rounded-lg shadow-lg p-6 w-full max-w-3xl overflow-auto"
-          >
-            <button
-              class="absolute top-2 right-2 text-xl font-bold"
-              @click="closeProjectDetails"
-            ></button>
-            <h2 class="text-2xl font-semibold mb-4">
-              {{ selectedProject.title }}
-            </h2>
-            <div
-              class="overflow-hidden w-full flex items-center justify-center bg-gray-50 rounded-md mb-4"
-            >
-              <img
-                :src="selectedProject.image"
-                :alt="selectedProject.title"
-                class="max-h-full object-contain"
-              />
-            </div>
-            <div class="text-gray-700 mb-4" v-html="selectedProject.description"></div>
-            <div class="tags flex flex-wrap">
-              <span
-                v-for="tag in selectedProject.tags"
-                :key="tag"
-                :class="['tag text-sm rounded-full px-3 py-1 mr-2 mb-2', getTagColor(tag)]"
-              >
-                {{ tag }}
-              </span>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-2">
+                <h3
+                  class="text-xl font-bold text-gray-800 dark:text-white group-hover:text-primary transition"
+                >
+                  {{ t(project.titleKey) }}
+                </h3>
+                <span
+                  class="text-xs font-mono text-primary bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded"
+                  >{{ project.year }}</span
+                >
+              </div>
+              <p
+                class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3"
+                v-html="t(project.descKey)"
+              ></p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="tag in project.tags"
+                  :key="tag"
+                  class="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full"
+                >
+                  {{ tag }}
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="certifications" class="certifications-section py-16 px-4">
-      <div class="container mx-auto" id="certificationsApp">
-        <h2 class="text-3xl font-bold text-center mb-8">Certifications</h2>
-        <div
-          class="certification-filters flex flex-wrap justify-center space-x-4 mb-8"
+    <div
+      v-if="selectedProject"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      @click="closeProject"
+    >
+      <div
+        class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto flex flex-col relative"
+        @click.stop
+      >
+        <button
+          @click="closeProject"
+          class="absolute top-4 right-4 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:text-red-500 w-10 h-10 rounded-full flex items-center justify-center transition z-10"
         >
+          <i class="fas fa-times"></i>
+        </button>
+
+        <div
+          class="w-full h-64 bg-gray-100 dark:bg-gray-700 flex items-center justify-center p-6 border-b border-gray-200 dark:border-gray-700"
+        >
+          <img
+            :src="selectedProject.image"
+            :alt="t(selectedProject.titleKey)"
+            class="max-h-full max-w-full object-contain drop-shadow-lg"
+          />
+        </div>
+
+        <div class="p-8">
+          <div class="flex flex-wrap justify-between items-start mb-4">
+            <div>
+              <span
+                class="text-primary font-mono text-sm bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full mb-2 inline-block"
+                >{{ t('cat_' + selectedProject.categoryId) }} • {{
+                selectedProject.year }}</span
+              >
+              <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+                {{ t(selectedProject.titleKey) }}
+              </h2>
+            </div>
+            <div class="flex gap-3 mt-2 md:mt-0">
+              <a
+                v-if="selectedProject.github"
+                :href="selectedProject.github"
+                target="_blank"
+                class="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-black transition flex items-center"
+              >
+                <i class="fab fa-github mr-2"></i> {{ t('btn_source_code') }}
+              </a>
+              <span
+                v-else
+                class="bg-gray-200 dark:bg-gray-700 text-gray-500 px-4 py-2 rounded-lg flex items-center cursor-not-allowed"
+              >
+                <i class="fas fa-lock mr-2"></i> {{ t('btn_private_code') }}
+              </span>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span
+              v-for="tag in selectedProject.tags"
+              :key="tag"
+              class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm font-medium"
+            >
+              {{ tag }}
+            </span>
+          </div>
+
+          <div class="prose dark:prose-invert max-w-none">
+            <h4 class="text-lg font-bold mb-2">{{ t('lbl_about_project') }}</h4>
+            <p
+              class="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line"
+              v-html="t(selectedProject.descKey)"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="certifications" class="py-20 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">
+          <span class="text-primary">04.</span> {{ t('nav_certifications') }}
+        </h2>
+
+        <div class="flex justify-center space-x-2 mb-12 overflow-x-auto pb-4">
           <button
-            v-for="category in categories"
-            :key="category"
-            @click="filterCategory(category)"
-            :class="{
-              'bg-blue-500 text-white': currentCategory === category,
-              'bg-gray-200 hover:bg-gray-300': currentCategory !== category,
-              'py-2 px-4 rounded mb-2': true
-            }"
+            v-for="cat in certCategories"
+            :key="cat.id"
+            @click="currentCertCategoryId = cat.id"
+            :class="currentCertCategoryId === cat.id ? 'bg-primary text-white' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'"
+            class="px-6 py-2 rounded-full transition whitespace-nowrap shadow-sm border border-gray-100 dark:border-gray-700"
           >
-            {{ category === 'toutes' ? 'Toutes' : (category === 'gratuites' ?
-            'Gratuites' : 'Payantes') }}
+            {{ t(cat.key) }}
           </button>
         </div>
-        <div
-          class="certifications-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
-            class="certification-card bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
             v-for="cert in filteredCertifications"
             :key="cert.id"
-            @click="goToCertification(cert.url)"
+            class="flex items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition cursor-pointer border border-gray-100 dark:border-gray-700 relative overflow-hidden group"
+            @click="openLink(cert.url)"
           >
+            <div
+              class="absolute left-0 top-0 bottom-0 w-1"
+              :class="cert.categoryId === 'payantes' ? 'bg-yellow-400' : 'bg-green-400'"
+            ></div>
             <img
               :src="cert.logo"
+              loading="lazy"
+              class="w-16 h-16 object-contain mr-4 bg-white rounded-lg p-1 z-10"
               :alt="cert.name"
-              class="certification-logo w-24 h-24 mb-4"
             />
-            <h3 class="text-lg font-semibold mb-2">{{ cert.name }}</h3>
-            <p class="text-gray-700 mb-1">{{ cert.organization }}</p>
-            <p class="text-gray-600">{{ cert.date }}</p>
+            <div class="z-10 flex-1">
+              <h4
+                class="font-bold text-gray-800 dark:text-white text-sm line-clamp-2 group-hover:text-primary transition"
+              >
+                {{ cert.name }}
+              </h4>
+              <div class="flex justify-between items-center mt-1">
+                <p class="text-xs text-gray-500">{{ cert.organization }}</p>
+                <span class="text-xs font-mono text-gray-400"
+                  >{{ formatDate(cert.date) }}</span
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-16 px-4">
-      <div class="container mx-auto">
-        <h2
-          class="text-3xl font-bold text-center mb-8"
-          data-i18n="contact_title"
-        >
-          Contactez-moi
+    <section id="personal" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          <span class="text-primary">05.</span> {{ t('nav_personal') }}
         </h2>
-        <p class="text-center mb-8" data-i18n="contact_description">
-          Envoyez-moi un message en remplissant le formulaire ci-dessous :
-        </p>
-        <form id="contact-form" class="contact-form max-w-lg mx-auto">
-          <div class="form-group mb-4">
-            <label
-              for="name"
-              class="block text-gray-700 mb-2"
-              data-i18n="contact_label_name"
-            >
-              Nom :
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              placeholder="Votre nom"
-              data-i18n-placeholder="contact_placeholder_name"
-              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-6xl mx-auto">
+          <div class="md:col-span-4 space-y-8">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+              <h3
+                class="text-xl font-bold mb-6 flex items-center text-gray-800 dark:text-white"
+              >
+                <i class="fas fa-language text-primary mr-3"></i> Langues
+              </h3>
+              <div class="space-y-6">
+                <div v-for="lang in languages" :key="lang.nameKey">
+                  <div class="flex justify-between mb-1">
+                    <span class="font-medium text-gray-700 dark:text-gray-300"
+                      >{{ t(lang.nameKey) }}</span
+                    >
+                    <span class="text-xs text-gray-500"
+                      >{{ t(lang.levelKey) }}</span
+                    >
+                  </div>
+                  <div
+                    class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2"
+                  >
+                    <div
+                      class="bg-primary h-2 rounded-full transition-all duration-1000"
+                      :style="{ width: lang.percent + '%' }"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+              <h3
+                class="text-xl font-bold mb-6 flex items-center text-gray-800 dark:text-white"
+              >
+                <i class="fas fa-heart text-red-500 mr-3"></i> Intérêts
+              </h3>
+              <div class="grid grid-cols-2 gap-3">
+                <div
+                  v-for="hobby in hobbies"
+                  :key="hobby.nameKey"
+                  class="flex flex-col items-center justify-center p-3 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-gray-600 transition"
+                >
+                  <i :class="hobby.icon + ' text-2xl mb-2 text-primary'"></i>
+                  <span
+                    class="text-sm font-medium text-gray-700 dark:text-gray-300"
+                    >{{ t(hobby.nameKey) }}</span
+                  >
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group mb-4">
-            <label
-              for="email"
-              class="block text-gray-700 mb-2"
-              data-i18n="contact_label_email"
+
+          <div class="md:col-span-8">
+            <div
+              class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg h-full"
             >
-              Email :
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="Votre email"
-              data-i18n-placeholder="contact_placeholder_email"
-              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+              <h3
+                class="text-2xl font-bold mb-8 flex items-center text-gray-800 dark:text-white"
+              >
+                <i class="fas fa-rocket text-purple-500 mr-3"></i> Roadmap &
+                Objectifs
+              </h3>
+
+              <div class="space-y-8">
+                <div
+                  v-for="step in roadmapSteps"
+                  :key="step.id"
+                  class="flex items-start"
+                >
+                  <div
+                    class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl"
+                    :class="step.colorClass"
+                  >
+                    {{ step.id }}
+                  </div>
+                  <div class="ml-6">
+                    <h4 class="text-lg font-bold text-gray-800 dark:text-white">
+                      {{ t(step.titleKey) }}
+                    </h4>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1">
+                      {{ t(step.descKey) }}
+                    </p>
+                    <div
+                      v-if="step.statusKey"
+                      class="mt-2 flex items-center text-xs text-gray-500"
+                    >
+                      <i class="fas fa-spinner fa-spin mr-2 text-primary"></i>
+                      {{ t(step.statusKey) }}
+                      <span v-if="step.deadlineKey">
+                        - {{ t(step.deadlineKey) }}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group mb-4">
-            <label
-              for="subject"
-              class="block text-gray-700 mb-2"
-              data-i18n="contact_label_subject"
-            >
-              Sujet :
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              required
-              placeholder="Sujet de votre message"
-              data-i18n-placeholder="contact_placeholder_subject"
-              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-16 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800"
+    >
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div
+          class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 shadow-sm border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-center gap-6">
+            <div class="relative">
+              <img
+                src="assets/images/pdp.webp"
+                alt="Erwan GitHub"
+                class="w-24 h-24 rounded-full border-4 border-white dark:border-gray-600 shadow-sm object-cover"
+              />
+              <div
+                class="absolute bottom-1 right-1 bg-green-500 w-5 h-5 rounded-full border-4 border-gray-50 dark:border-gray-800"
+              ></div>
+            </div>
+            <div>
+              <h3
+                class="text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2"
+              >
+                Erwanlg0
+                <i class="fab fa-github text-gray-400 text-xl"></i>
+              </h3>
+              <p class="text-gray-500 dark:text-gray-400 mt-1">
+                Développeur Full Stack & DevOps
+              </p>
+              <div
+                class="flex gap-4 mt-3 text-sm text-gray-600 dark:text-gray-400"
+              >
+                <span class="flex items-center gap-1"
+                  ><i class="fas fa-code-branch text-primary"></i> 15+
+                  Repos</span
+                >
+                <span class="flex items-center gap-1"
+                  ><i class="fas fa-star text-yellow-500"></i>
+                  Contributions</span
+                >
+              </div>
+            </div>
           </div>
-          <div class="form-group mb-6">
+
+          <a
+            href="https://github.com/Erwanlg0"
+            target="_blank"
+            class="group flex items-center gap-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 px-6 py-3 rounded-xl font-bold transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/20"
+          >
+            <span>Voir mon profil</span>
+            <i
+              class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"
+            ></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-darkbg">
+      <div class="container mx-auto px-4 max-w-2xl text-center">
+        <h2 class="text-3xl font-bold mb-8">{{ t('contact_title') }}</h2>
+        <form @submit.prevent="sendEmail" class="space-y-6 text-left">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >{{ t('contact_label_name') }}</label
+              >
+              <input
+                type="text"
+                name="name"
+                required
+                class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition dark:text-white"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >{{ t('contact_label_email') }}</label
+              >
+              <input
+                type="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition dark:text-white"
+              />
+            </div>
+          </div>
+          <div>
             <label
-              for="message"
-              class="block text-gray-700 mb-2"
-              data-i18n="contact_label_message"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >{{ t('contact_label_message') }}</label
             >
-              Message :
-            </label>
             <textarea
-              id="message"
               name="message"
               rows="5"
               required
-              placeholder="Votre message"
-              data-i18n-placeholder="contact_placeholder_message"
-              class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition dark:text-white"
             ></textarea>
           </div>
           <button
             type="submit"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            data-i18n="contact_send"
+            class="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-blue-600 transition shadow-lg shadow-blue-500/30 flex justify-center items-center"
           >
-            Envoyer
+            <i class="fas fa-paper-plane mr-2"></i> {{ t('contact_send') }}
           </button>
         </form>
-      </div>
-      <div
-        class="contact-buttons-container flex flex-wrap justify-center space-x-4 mt-8"
-      >
-        <div
-          class="contact_caps clickableBtn flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100"
-          data-contact="linkedin"
-        >
-          <img
-            class="contact_caps_pic w-12 h-12 mb-2"
-            src="assets/images/rs/linkedin.png"
-            alt="LinkedIn icon"
-          />
-          <p class="contact_caps_p" data-i18n="contact_linkedin">LinkedIn</p>
-        </div>
 
-        <div
-          class="contact_caps clickableBtn flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100"
-          data-contact="download_cv"
-        >
-          <img
-            class="contact_caps_pic w-12 h-12 mb-2"
-            src="assets/images/downloads.png"
-            alt="Download icon"
-          />
-          <p class="contact_caps_p" data-i18n="contact_download_cv">
-            Téléchargez ici mon CV
-          </p>
-        </div>
-
-        <div
-          class="contact_caps clickableBtn flex flex-col items-center bg-white rounded-lg shadow-md p-4 cursor-pointer hover:bg-gray-100"
-          data-contact="github"
-        >
-          <img
-            class="contact_caps_pic w-12 h-12 mb-2"
-            src="assets/images/rs/github.png"
-            alt="GitHub icon"
-          />
-          <p class="contact_caps_p" data-i18n="contact_github">GitHub</p>
+        <div class="mt-12 flex justify-center space-x-8">
+          <a
+            href="https://linkedin.com/in/erwan-luce-guedon/"
+            target="_blank"
+            class="text-gray-400 hover:text-[#0077b5] text-3xl transition"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="https://github.com/Erwanlg0"
+            target="_blank"
+            class="text-gray-400 hover:text-black dark:hover:text-white text-3xl transition"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="mailto:erwan.luce.guedon@gmail.com"
+            class="text-gray-400 hover:text-red-500 text-3xl transition"
+            ><i class="fas fa-envelope"></i
+          ></a>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-gray-800 text-white py-6 px-4">
-      <p class="text-center" data-i18n="footer_text">
-        &copy; 2025 Erwan Luce--Guédon
-      </p>
+    <footer
+      class="py-8 text-center text-gray-500 text-sm bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
+    >
+      <p>&copy; 2025 Erwan Luce-Guedon. Built with Vue 3 & Tailwind.</p>
     </footer>
 
-    <!-- Petit script pour le menu mobile -->
-    <script>
-      const menuToggle = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
+    <transition name="fade">
+      <button
+        v-if="showScrollTop"
+        @click="scrollToTop"
+        class="fixed bottom-8 right-8 bg-primary text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-all z-40 animate-bounce"
+      >
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </transition>
 
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    </script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>
