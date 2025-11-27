@@ -16,18 +16,15 @@ createApp({
     const showLangMenu = ref(false);
     const selectedProject = ref(null);
     const showScrollTop = ref(false);
-
-    // Calcul dynamique du lien CV selon la langue
     const cvLink = computed(() => {
       const lang = currentLang.value;
       const prefix = lang === "fr" ? "" : `${lang.toUpperCase()}_`;
       return `assets/pdf/CV_${prefix}Erwan_Luce_Guedon.pdf`;
     });
 
-    // Fonction de formatage des dates (YYYY-MM -> Format Local)
     const formatDate = (dateString) => {
       if (!dateString) return "";
-      const date = new Date(dateString + "-01"); // Ajout du jour pour éviter les problèmes de timezone
+      const date = new Date(dateString + "-01");
       return new Intl.DateTimeFormat(currentLang.value, {
         month: "short",
         year: "numeric",
@@ -172,9 +169,9 @@ createApp({
 
     const projects = ref([
       {
-        id: 14,
+        id: 12,
         titleKey: "proj_myges_title",
-        image: "assets/images/project/web.webp",
+        image: "assets/images/project/n8n.webp",
         year: "2025",
         contextKey: "proj_myges_context",
         durationKey: "duration_continuous",
@@ -184,7 +181,53 @@ createApp({
         github: null,
       },
       {
+        id: 11,
+        titleKey: "proj_ocean_title",
+        image: "assets/images/project/subdive.webp",
+        year: "2025",
+        contextKey: "proj_ocean_context",
+        durationKey: "duration_3_months",
+        tags: ["C", "Gestion Mémoire", "Algorithme", "Moteur Physique"],
+        categoryId: "school",
+        descKey: "proj_ocean_desc",
+        github: "https://github.com/lennyblk/OceanDepth",
+      },
+      {
         id: 10,
+        titleKey: "proj_navale_title",
+        image: "assets/images/project/navale.webp",
+        year: "2024",
+        contextKey: "proj_navale_context",
+        tags: ["C", "SDL2", "Graphisme"],
+        categoryId: "school",
+        descKey: "proj_navale_desc",
+        github: "https://github.com/Hitoyu22/BattleChip",
+      },
+      {
+        id: 9,
+        titleKey: "proj_lol_title",
+        image: "assets/images/project/python.webp",
+        year: "2025",
+        contextKey: "proj_lol_context",
+        durationKey: "duration_2_months",
+        tags: ["Python", "Data Analysis", "Riot API", "Pandas"],
+        categoryId: "personal",
+        descKey: "proj_lol_desc",
+        github: null,
+      },
+      {
+        id: 8,
+        titleKey: "proj_idfm_title",
+        image: "assets/images/project/idfm.webp",
+        year: "2025",
+        contextKey: "proj_idfm_context",
+        tags: ["Android", "Kotlin", "API OpenData"],
+        categoryId: "school",
+        descKey: "proj_idfm_desc",
+        github: "https://github.com/WissamCHERADI/Metro",
+      },
+      {
+        id: 7,
         titleKey: "proj_bcare_title",
         image: "assets/images/project/business-care.webp",
         year: "2025",
@@ -202,19 +245,18 @@ createApp({
         github: "https://github.com/2ESGI-PA",
       },
       {
-        id: 13,
-        titleKey: "proj_ocean_title",
-        image: "assets/images/project/subdive.webp",
+        id: 6,
+        titleKey: "proj_portfolio_title",
+        image: "assets/images/project/portfolio.webp",
         year: "2024",
-        contextKey: "proj_ocean_context",
-        durationKey: "duration_3_months",
-        tags: ["C", "Gestion Mémoire", "Algorithme", "Moteur Physique"],
-        categoryId: "school",
-        descKey: "proj_ocean_desc",
-        github: "https://github.com/lennyblk/OceanDepth",
+        contextKey: "proj_portfolio_context",
+        tags: ["Vue.js", "Tailwind", "CI/CD"],
+        categoryId: "personal",
+        descKey: "proj_portfolio_desc",
+        github: "https://github.com/Erwanlg0/portfolio",
       },
       {
-        id: 15,
+        id: 5,
         titleKey: "proj_asm_title",
         image: "assets/images/project/asm.webp",
         year: "2024",
@@ -226,52 +268,7 @@ createApp({
         github: null,
       },
       {
-        id: 11,
-        titleKey: "proj_lol_title",
-        image: "assets/images/project/python.webp",
-        year: "2024",
-        contextKey: "proj_lol_context",
-        durationKey: "duration_2_months",
-        tags: ["Python", "Data Analysis", "Riot API", "Pandas"],
-        categoryId: "personal",
-        descKey: "proj_lol_desc",
-        github: "https://github.com/Erwanlg0/LoL-Optimizer",
-      },
-      {
-        id: 12,
-        titleKey: "proj_navale_title",
-        image: "assets/images/project/navale.webp",
-        year: "2024",
-        contextKey: "proj_navale_context",
-        tags: ["C", "SDL2", "Graphisme"],
-        categoryId: "school",
-        descKey: "proj_navale_desc",
-        github: "https://github.com/Hitoyu22/BattleChip",
-      },
-      {
-        id: 11.5,
-        titleKey: "proj_idfm_title",
-        image: "assets/images/project/web.webp",
-        year: "2024",
-        contextKey: "proj_idfm_context",
-        tags: ["Android", "Kotlin", "API OpenData"],
-        categoryId: "school",
-        descKey: "proj_idfm_desc",
-        github: "https://github.com/WissamCHERADI/Metro",
-      },
-      {
-        id: 9,
-        titleKey: "proj_portfolio_title",
-        image: "assets/images/project/portfolio.webp",
-        year: "2024",
-        contextKey: "proj_portfolio_context",
-        tags: ["Vue.js", "Tailwind", "CI/CD"],
-        categoryId: "personal",
-        descKey: "proj_portfolio_desc",
-        github: "https://github.com/Erwanlg0/portfolio",
-      },
-      {
-        id: 8,
+        id: 4,
         titleKey: "proj_tetris_title",
         image: "assets/images/project/tetris.webp",
         year: "2024",
@@ -282,7 +279,7 @@ createApp({
         github: "https://github.com/Erwanlg0/Tetris-C",
       },
       {
-        id: 6,
+        id: 3,
         titleKey: "proj_asso_title",
         image: "assets/images/project/cmwnoir.webp",
         year: "2024",
@@ -293,7 +290,7 @@ createApp({
         github: "https://github.com/Erwanlg0/CMWFIGHTS",
       },
       {
-        id: 5,
+        id: 2,
         titleKey: "proj_nas_title",
         image: "assets/images/project/nas.webp",
         year: "2023",
@@ -321,7 +318,7 @@ createApp({
         id: 17,
         name: "Artificial Intelligence Fundamentals",
         organization: "IBM SkillsBuild",
-        date: "2025-11", // ISO format
+        date: "2025-11",
         logo: "assets/images/certif/artificial-intelligence-fundamentals.webp",
         categoryId: "gratuites",
         url: "https://www.credly.com/badges/5e1d4894-b39a-41b0-808a-00a9ed866ea5/public_url",
