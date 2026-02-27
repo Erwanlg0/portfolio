@@ -369,7 +369,7 @@ createApp({
         date: "2026-02",
         logo: "assets/images/certif/digital-safety-and-security-awareness.webp",
         categoryId: "gratuites",
-        url: "",
+        url: "https://www.credly.com/badges/f1ba82df-cd9a-459f-8b3e-5c4d13747ced/public_url",
       },
       {
         id: 18,
@@ -378,7 +378,7 @@ createApp({
         date: "2026-01",
         logo: "assets/images/certif/explore-emerging-tech.webp",
         categoryId: "gratuites",
-        url: "",
+        url: "https://www.credly.com/badges/419df870-fa46-4da8-9f43-189b0461273e/public_url",
       },
       {
         id: 17,
