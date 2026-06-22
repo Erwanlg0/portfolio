@@ -169,6 +169,42 @@ createApp({
 
     const projects = ref([
       {
+        id: 19,
+        titleKey: "proj_cinema_title",
+        image: "assets/images/project/nodejs.webp",
+        year: "2026",
+        contextKey: "proj_cinema_context",
+        durationKey: "duration_continuous",
+        tags: ["Node.js", "TypeScript", "API REST", "Docker", "Swagger"],
+        categoryId: "school",
+        descKey: "proj_cinema_desc",
+        github: null,
+      },
+      {
+        id: 18,
+        titleKey: "proj_studly_title",
+        image: "assets/images/project/studly.webp",
+        year: "2026",
+        contextKey: "proj_studly_context",
+        durationKey: "duration_continuous",
+        tags: ["Kotlin", "Jetpack Compose", "Hilt", "Room", "SQLCipher"],
+        categoryId: "personal",
+        descKey: "proj_studly_desc",
+        github: "https://github.com/Erwanlg0/Myges-Mobile",
+      },
+      {
+        id: 17,
+        titleKey: "proj_swiftsplit_title",
+        image: "assets/images/project/swiftsplit.webp",
+        year: "2026",
+        contextKey: "proj_swiftsplit_context",
+        durationKey: "duration_continuous",
+        tags: ["Kotlin", "Jetpack Compose", "Architecture Hexagonale"],
+        categoryId: "personal",
+        descKey: "proj_swiftsplit_desc",
+        github: "https://github.com/Erwanlg0/SwiftSplit",
+      },
+      {
         id: 16,
         titleKey: "proj_cn_title",
         image: "assets/images/project/connected_neighbours.webp",
@@ -362,6 +398,24 @@ createApp({
     ]);
 
     const certifications = ref([
+      {
+        id: 21,
+        name: "Networking Academy Learn-A-Thon 2026",
+        organization: "Cisco",
+        date: "2026-04",
+        logo: "assets/images/certif/networking-academy-learn-a-thon-2026.webp",
+        categoryId: "gratuites",
+        url: "https://www.credly.com/badges/22aefb6f-db54-456a-9007-18e8e8dd7bc0/public_url",
+      },
+      {
+        id: 20,
+        name: "Craft Precise Prompts for AI Models",
+        organization: "IBM SkillsBuild",
+        date: "2026-03",
+        logo: "assets/images/certif/craft-precise-prompts-for-ai-models.webp",
+        categoryId: "gratuites",
+        url: "https://www.credly.com/badges/d39f13d9-9665-467c-beb9-c0cdcf76b5bc/public_url",
+      },
       {
         id: 19,
         name: "Digital Safety and Security Awareness",
