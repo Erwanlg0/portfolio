@@ -147,24 +147,6 @@ createApp({
         statusKey: "roadmap_status_ongoing",
         deadlineKey: "roadmap_1_deadline",
       },
-      {
-        id: 2,
-        colorClass:
-          "bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400",
-        titleKey: "roadmap_2_title",
-        descKey: "roadmap_2_desc",
-        statusKey: "roadmap_status_ongoing",
-        deadlineKey: "roadmap_2_deadline",
-      },
-      {
-        id: 3,
-        colorClass:
-          "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400",
-        titleKey: "roadmap_3_title",
-        descKey: "roadmap_3_desc",
-        statusKey: null,
-        deadlineKey: null,
-      },
     ]);
 
     const projects = ref([
